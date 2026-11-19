@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 5d1e8bc9a76ae264ca2b4352e48d6563
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7979358286926587382
+    second: JackO Lantern_Glass frame_0
+  - first:
+      213: -2832255485650142922
+    second: JackO Lantern_Glass frame_1
+  - first:
+      213: 309788823968977231
+    second: JackO Lantern_Glass frame_2
+  - first:
+      213: -7994410515475903890
+    second: JackO Lantern_Glass frame_3
+  - first:
+      213: 3281998276233689051
+    second: JackO Lantern_Glass frame_4
+  - first:
+      213: 6880800710791070154
+    second: JackO Lantern_Glass frame_5
+  - first:
+      213: 6659446091581021784
+    second: JackO Lantern_Glass frame_6
+  - first:
+      213: -5984418854240305663
+    second: JackO Lantern_Glass frame_7
+  - first:
+      213: -8948145101755703051
+    second: JackO Lantern_Glass frame_8
+  - first:
+      213: 6718717688745823696
+    second: JackO Lantern_Glass frame_9
+  - first:
+      213: -2988591037463633630
+    second: JackO Lantern_Glass frame_10
+  - first:
+      213: 291328675858205797
+    second: JackO Lantern_Glass frame_11
+  - first:
+      213: 2124182473109989210
+    second: JackO Lantern_Glass frame_12
+  - first:
+      213: -6033347234924594866
+    second: JackO Lantern_Glass frame_13
+  - first:
+      213: -8284349150759547079
+    second: JackO Lantern_Glass frame_14
+  - first:
+      213: -3035739510921053787
+    second: JackO Lantern_Glass frame_15
+  - first:
+      213: 1068375705829883897
+    second: JackO Lantern_Glass frame_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 717
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0adb2c1aef934190800000000000000
+      internalID: -7979358286926587382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_1
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 739
+        width: 261
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639fba844aec1b8d0800000000000000
+      internalID: -2832255485650142922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 839
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f419e084b479c4400800000000000000
+      internalID: 309788823968977231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 38
+        width: 1152
+        height: 1042
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a496c0ef52e0190800000000000000
+      internalID: -7994410515475903890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_4
+      rect:
+        serializedVersion: 2
+        x: 1699
+        y: 371
+        width: 221
+        height: 484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd77a502b000c8d20800000000000000
+      internalID: 3281998276233689051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_5
+      rect:
+        serializedVersion: 2
+        x: 1699
+        y: 633
+        width: 49
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac105f85ac38d7f50800000000000000
+      internalID: 6880800710791070154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_6
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 597
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85edc81efea1b6c50800000000000000
+      internalID: 6659446091581021784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 433
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e3bd542c213fca0800000000000000
+      internalID: -5984418854240305663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_8
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 214
+        width: 45
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f02333707dc1d380800000000000000
+      internalID: -8948145101755703051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 480
+        height: 414
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd04dff32ead3d50800000000000000
+      internalID: 6718717688745823696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_10
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 157
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 221601129446686d0800000000000000
+      internalID: -2988591037463633630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_11
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 166
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56cc96d13e10b0400800000000000000
+      internalID: 291328675858205797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_12
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 108
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a57e4d374bc9a7d10800000000000000
+      internalID: 2124182473109989210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_13
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 148
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e49fbb7e7ae354ca0800000000000000
+      internalID: -6033347234924594866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_14
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 103
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93f0ba9f654180d80800000000000000
+      internalID: -8284349150759547079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_15
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 0
+        width: 260
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9bee4bff2eed5d0800000000000000
+      internalID: -3035739510921053787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_Glass frame_16
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 101
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ffb5a04b02a3de00800000000000000
+      internalID: 1068375705829883897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      JackO Lantern_Glass frame_0: -7979358286926587382
+      JackO Lantern_Glass frame_1: -2832255485650142922
+      JackO Lantern_Glass frame_10: -2988591037463633630
+      JackO Lantern_Glass frame_11: 291328675858205797
+      JackO Lantern_Glass frame_12: 2124182473109989210
+      JackO Lantern_Glass frame_13: -6033347234924594866
+      JackO Lantern_Glass frame_14: -8284349150759547079
+      JackO Lantern_Glass frame_15: -3035739510921053787
+      JackO Lantern_Glass frame_16: 1068375705829883897
+      JackO Lantern_Glass frame_2: 309788823968977231
+      JackO Lantern_Glass frame_3: -7994410515475903890
+      JackO Lantern_Glass frame_4: 3281998276233689051
+      JackO Lantern_Glass frame_5: 6880800710791070154
+      JackO Lantern_Glass frame_6: 6659446091581021784
+      JackO Lantern_Glass frame_7: -5984418854240305663
+      JackO Lantern_Glass frame_8: -8948145101755703051
+      JackO Lantern_Glass frame_9: 6718717688745823696
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

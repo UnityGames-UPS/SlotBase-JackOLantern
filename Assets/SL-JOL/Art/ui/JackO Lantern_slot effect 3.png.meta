@@ -1,0 +1,884 @@
+fileFormatVersion: 2
+guid: 038d79226e000514380ae3c8b4086354
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3119867636923375001
+    second: JackO Lantern_slot effect 3_0
+  - first:
+      213: 1466742284042873816
+    second: JackO Lantern_slot effect 3_1
+  - first:
+      213: 9193934788941419028
+    second: JackO Lantern_slot effect 3_2
+  - first:
+      213: 8464769233242856332
+    second: JackO Lantern_slot effect 3_3
+  - first:
+      213: -9021880474620930548
+    second: JackO Lantern_slot effect 3_4
+  - first:
+      213: 8957298684770449264
+    second: JackO Lantern_slot effect 3_5
+  - first:
+      213: -5372136562088606157
+    second: JackO Lantern_slot effect 3_6
+  - first:
+      213: 8137102816930727789
+    second: JackO Lantern_slot effect 3_7
+  - first:
+      213: -5600330334328520502
+    second: JackO Lantern_slot effect 3_8
+  - first:
+      213: -143053838781609769
+    second: JackO Lantern_slot effect 3_9
+  - first:
+      213: -3018055480381083676
+    second: JackO Lantern_slot effect 3_10
+  - first:
+      213: -4455015008361799089
+    second: JackO Lantern_slot effect 3_11
+  - first:
+      213: 6290490525273491765
+    second: JackO Lantern_slot effect 3_12
+  - first:
+      213: 1962151494789563327
+    second: JackO Lantern_slot effect 3_13
+  - first:
+      213: 2823927382282320455
+    second: JackO Lantern_slot effect 3_14
+  - first:
+      213: 3661366145122474047
+    second: JackO Lantern_slot effect 3_15
+  - first:
+      213: 358942610393320084
+    second: JackO Lantern_slot effect 3_16
+  - first:
+      213: -2436532657127934485
+    second: JackO Lantern_slot effect 3_17
+  - first:
+      213: -8762458692055056646
+    second: JackO Lantern_slot effect 3_18
+  - first:
+      213: 3787954737909334308
+    second: JackO Lantern_slot effect 3_19
+  - first:
+      213: 2855710295056087606
+    second: JackO Lantern_slot effect 3_20
+  - first:
+      213: 8694637278980942757
+    second: JackO Lantern_slot effect 3_21
+  - first:
+      213: -8179074241260425681
+    second: JackO Lantern_slot effect 3_22
+  - first:
+      213: 6205744912073977067
+    second: JackO Lantern_slot effect 3_23
+  - first:
+      213: -639174782967081938
+    second: JackO Lantern_slot effect 3_24
+  - first:
+      213: 8193053663677104702
+    second: JackO Lantern_slot effect 3_25
+  - first:
+      213: -3738617861177028782
+    second: JackO Lantern_slot effect 3_26
+  - first:
+      213: 3383582983713492
+    second: JackO Lantern_slot effect 3_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_0
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 820
+        width: 199
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99d1e05061ffb4b20800000000000000
+      internalID: 3119867636923375001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_1
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 920
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dbab61165aea5410800000000000000
+      internalID: 1466742284042873816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_2
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 803
+        width: 81
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41295fe9afa679f70800000000000000
+      internalID: 9193934788941419028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 776
+        width: 39
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b9815f4c6e87570800000000000000
+      internalID: 8464769233242856332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_4
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 761
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c06df202287dbc280800000000000000
+      internalID: -9021880474620930548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_5
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 743
+        width: 39
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077f0dc22b7be4c70800000000000000
+      internalID: 8957298684770449264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_6
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 666
+        width: 50
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33602d372465275b0800000000000000
+      internalID: -5372136562088606157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_7
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 728
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d678cf756ebcce070800000000000000
+      internalID: 8137102816930727789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_8
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 691
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac001859b31a742b0800000000000000
+      internalID: -5600330334328520502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_9
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 639
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d88aa3aa45c30ef0800000000000000
+      internalID: -143053838781609769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_10
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 646
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4efe67be786bd16d0800000000000000
+      internalID: -3018055480381083676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_11
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 597
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f42af8d147b9c22c0800000000000000
+      internalID: -4455015008361799089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_12
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 580
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53903e5edcf4c4750800000000000000
+      internalID: 6290490525273491765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_13
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 547
+        width: 47
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb30f6a7366fa3b10800000000000000
+      internalID: 1962151494789563327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_14
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 574
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74abf6c0efa903720800000000000000
+      internalID: 2823927382282320455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_15
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 454
+        width: 48
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f389aa83c19cfc230800000000000000
+      internalID: 3661366145122474047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_16
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 522
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ace3307683bf400800000000000000
+      internalID: 358942610393320084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_17
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 385
+        width: 48
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be530482572bf2ed0800000000000000
+      internalID: -2436532657127934485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_18
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 430
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe360dbe3e756680800000000000000
+      internalID: -8762458692055056646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_19
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 368
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4210852c3c4819430800000000000000
+      internalID: 3787954737909334308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_20
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 343
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a7e36126581a720800000000000000
+      internalID: 2855710295056087606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_21
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 349
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ab27800a8e89a870800000000000000
+      internalID: 8694637278980942757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_22
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 318
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2eef1aef471e7e80800000000000000
+      internalID: -8179074241260425681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_23
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 290
+        width: 39
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bec6bda3e1c3f1650800000000000000
+      internalID: 6205744912073977067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_24
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 129
+        width: 70
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e241cdfdbe13127f0800000000000000
+      internalID: -639174782967081938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_25
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 272
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e32cf2106e293b170800000000000000
+      internalID: 8193053663677104702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_26
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 121
+        width: 119
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25fcc910dd2cd1cc0800000000000000
+      internalID: -3738617861177028782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_slot effect 3_27
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 128
+        width: 93
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d2ffcdc9550c0000800000000000000
+      internalID: 3383582983713492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      JackO Lantern_slot effect 3_0: 3119867636923375001
+      JackO Lantern_slot effect 3_1: 1466742284042873816
+      JackO Lantern_slot effect 3_10: -3018055480381083676
+      JackO Lantern_slot effect 3_11: -4455015008361799089
+      JackO Lantern_slot effect 3_12: 6290490525273491765
+      JackO Lantern_slot effect 3_13: 1962151494789563327
+      JackO Lantern_slot effect 3_14: 2823927382282320455
+      JackO Lantern_slot effect 3_15: 3661366145122474047
+      JackO Lantern_slot effect 3_16: 358942610393320084
+      JackO Lantern_slot effect 3_17: -2436532657127934485
+      JackO Lantern_slot effect 3_18: -8762458692055056646
+      JackO Lantern_slot effect 3_19: 3787954737909334308
+      JackO Lantern_slot effect 3_2: 9193934788941419028
+      JackO Lantern_slot effect 3_20: 2855710295056087606
+      JackO Lantern_slot effect 3_21: 8694637278980942757
+      JackO Lantern_slot effect 3_22: -8179074241260425681
+      JackO Lantern_slot effect 3_23: 6205744912073977067
+      JackO Lantern_slot effect 3_24: -639174782967081938
+      JackO Lantern_slot effect 3_25: 8193053663677104702
+      JackO Lantern_slot effect 3_26: -3738617861177028782
+      JackO Lantern_slot effect 3_27: 3383582983713492
+      JackO Lantern_slot effect 3_3: 8464769233242856332
+      JackO Lantern_slot effect 3_4: -9021880474620930548
+      JackO Lantern_slot effect 3_5: 8957298684770449264
+      JackO Lantern_slot effect 3_6: -5372136562088606157
+      JackO Lantern_slot effect 3_7: 8137102816930727789
+      JackO Lantern_slot effect 3_8: -5600330334328520502
+      JackO Lantern_slot effect 3_9: -143053838781609769
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

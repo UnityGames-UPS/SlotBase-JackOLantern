@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 4072e13055300c340a97f5a936d51427
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1441315277889993328
+    second: NUMBERS_0
+  - first:
+      213: -1517007785684193254
+    second: NUMBERS_1
+  - first:
+      213: -4471277900230171221
+    second: NUMBERS_2
+  - first:
+      213: -4753561885110895864
+    second: NUMBERS_3
+  - first:
+      213: 1146367645919522658
+    second: NUMBERS_4
+  - first:
+      213: 392666050859950500
+    second: NUMBERS_5
+  - first:
+      213: 2802421745909986100
+    second: NUMBERS_6
+  - first:
+      213: 7728594024875552797
+    second: NUMBERS_7
+  - first:
+      213: -2241624952941190728
+    second: NUMBERS_8
+  - first:
+      213: 7349970944763085008
+    second: NUMBERS_9
+  - first:
+      213: -5302620545009443622
+    second: NUMBERS_10
+  - first:
+      213: 7028559804468914462
+    second: NUMBERS_11
+  - first:
+      213: 1535893387028160901
+    second: NUMBERS_12
+  - first:
+      213: -1198877577090579802
+    second: NUMBERS_13
+  - first:
+      213: -6619688558988636129
+    second: NUMBERS_14
+  - first:
+      213: 2147626481820332554
+    second: NUMBERS_15
+  - first:
+      213: -4481458661025866237
+    second: NUMBERS_16
+  - first:
+      213: -8841799270257128555
+    second: NUMBERS_17
+  - first:
+      213: 6062584071658072634
+    second: NUMBERS_18
+  - first:
+      213: -2747180802478128353
+    second: NUMBERS_19
+  - first:
+      213: -2936591766434037382
+    second: NUMBERS_20
+  - first:
+      213: -2099565999025142802
+    second: NUMBERS_21
+  - first:
+      213: 8423607787542963954
+    second: NUMBERS_22
+  - first:
+      213: 2680375848917434870
+    second: NUMBERS_23
+  - first:
+      213: 8670536367261287090
+    second: NUMBERS_24
+  - first:
+      213: 6171950091082203693
+    second: NUMBERS_25
+  - first:
+      213: 9168087373682721916
+    second: NUMBERS_26
+  - first:
+      213: 8192327203723555261
+    second: NUMBERS_27
+  - first:
+      213: 5469361690827852021
+    second: NUMBERS_28
+  - first:
+      213: 3736340533560278952
+    second: NUMBERS_29
+  - first:
+      213: 4844305894192352679
+    second: NUMBERS_30
+  - first:
+      213: 7556258587381458319
+    second: NUMBERS_31
+  - first:
+      213: 4873502957741621395
+    second: NUMBERS_32
+  - first:
+      213: 4069526854393386492
+    second: NUMBERS_33
+  - first:
+      213: 5851968726153984577
+    second: NUMBERS_34
+  - first:
+      213: -1919350463414677683
+    second: NUMBERS_35
+  - first:
+      213: -9147095655707710581
+    second: NUMBERS_36
+  - first:
+      213: -3731421913116374477
+    second: NUMBERS_37
+  - first:
+      213: 7652429435833592755
+    second: NUMBERS_38
+  - first:
+      213: 542680279713339356
+    second: NUMBERS_39
+  - first:
+      213: 7593625062660321365
+    second: NUMBERS_40
+  - first:
+      213: -6675600541242947557
+    second: NUMBERS_41
+  - first:
+      213: -5460552684631733743
+    second: NUMBERS_42
+  - first:
+      213: -4924400950567464558
+    second: NUMBERS_43
+  - first:
+      213: -5718871696546157847
+    second: NUMBERS_44
+  - first:
+      213: 458735785525347187
+    second: NUMBERS_45
+  - first:
+      213: -1099411666349022736
+    second: NUMBERS_46
+  - first:
+      213: 3894011665972678500
+    second: NUMBERS_47
+  - first:
+      213: -7321027767007424529
+    second: NUMBERS_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NUMBERS_1
+      rect:
+        serializedVersion: 2
+        x: 3939
+        y: 247
+        width: 501
+        height: 657
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a10bac4d47182fae0800000000000000
+      internalID: -1517007785684193254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NUMBERS_2
+      rect:
+        serializedVersion: 2
+        x: 4604
+        y: 246
+        width: 486
+        height: 661
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba5e9b88074d2f1c0800000000000000
+      internalID: -4471277900230171221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NUMBERS_3
+      rect:
+        serializedVersion: 2
+        x: 5945
+        y: 240
+        width: 508
+        height: 660
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80bf024a6a4f70eb0800000000000000
+      internalID: -4753561885110895864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NUMBERS_5
+      rect:
+        serializedVersion: 2
+        x: 5251
+        y: 246
+        width: 521
+        height: 660
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a1ecdc51b7037500800000000000000
+      internalID: 392666050859950500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NUMBERS_6
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 248
+        width: 482
+        height: 659
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4337bc3eab334e620800000000000000
+      internalID: 2802421745909986100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NUMBERS_9
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 247
+        width: 510
+        height: 659
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d0cb08e1a7500660800000000000000
+      internalID: 7349970944763085008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NUMBERS_10
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 238
+        width: 359
+        height: 660
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc160475be4966b0800000000000000
+      internalID: -5302620545009443622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NUMBERS_11
+      rect:
+        serializedVersion: 2
+        x: 1961
+        y: 241
+        width: 481
+        height: 659
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1965fb37e57a8160800000000000000
+      internalID: 7028559804468914462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NUMBERS_12
+      rect:
+        serializedVersion: 2
+        x: 2579
+        y: 247
+        width: 506
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5816fa2e5e6905510800000000000000
+      internalID: 1535893387028160901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NUMBERS_42
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 249
+        width: 478
+        height: 659
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a483bb3483834b0800000000000000
+      internalID: -5460552684631733743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9b58db013151fa54482372b119b33163
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NUMBERS_0: 1441315277889993328
+      NUMBERS_1: -1517007785684193254
+      NUMBERS_10: -5302620545009443622
+      NUMBERS_11: 7028559804468914462
+      NUMBERS_12: 1535893387028160901
+      NUMBERS_13: -1198877577090579802
+      NUMBERS_14: -6619688558988636129
+      NUMBERS_15: 2147626481820332554
+      NUMBERS_16: -4481458661025866237
+      NUMBERS_17: -8841799270257128555
+      NUMBERS_18: 6062584071658072634
+      NUMBERS_19: -2747180802478128353
+      NUMBERS_2: -4471277900230171221
+      NUMBERS_20: -2936591766434037382
+      NUMBERS_21: -2099565999025142802
+      NUMBERS_22: 8423607787542963954
+      NUMBERS_23: 2680375848917434870
+      NUMBERS_24: 8670536367261287090
+      NUMBERS_25: 6171950091082203693
+      NUMBERS_26: 9168087373682721916
+      NUMBERS_27: 8192327203723555261
+      NUMBERS_28: 5469361690827852021
+      NUMBERS_29: 3736340533560278952
+      NUMBERS_3: -4753561885110895864
+      NUMBERS_30: 4844305894192352679
+      NUMBERS_31: 7556258587381458319
+      NUMBERS_32: 4873502957741621395
+      NUMBERS_33: 4069526854393386492
+      NUMBERS_34: 5851968726153984577
+      NUMBERS_35: -1919350463414677683
+      NUMBERS_36: -9147095655707710581
+      NUMBERS_37: -3731421913116374477
+      NUMBERS_38: 7652429435833592755
+      NUMBERS_39: 542680279713339356
+      NUMBERS_4: 1146367645919522658
+      NUMBERS_40: 7593625062660321365
+      NUMBERS_41: -6675600541242947557
+      NUMBERS_42: -5460552684631733743
+      NUMBERS_43: -4924400950567464558
+      NUMBERS_44: -5718871696546157847
+      NUMBERS_45: 458735785525347187
+      NUMBERS_46: -1099411666349022736
+      NUMBERS_47: 3894011665972678500
+      NUMBERS_48: -7321027767007424529
+      NUMBERS_5: 392666050859950500
+      NUMBERS_6: 2802421745909986100
+      NUMBERS_7: 7728594024875552797
+      NUMBERS_8: -2241624952941190728
+      NUMBERS_9: 7349970944763085008
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,380 @@
+using System.Collections;
+using UnityEngine;
+
+public class AudioManager : MonoBehaviour
+{
+    internal static AudioManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        _musicEnabled = PlayerPrefs.GetInt(PrefKeyMusic, 1) == 1;
+        _sfxEnabled   = PlayerPrefs.GetInt(PrefKeysfx,   1) == 1;
+        _musicVolume  = PlayerPrefs.GetFloat(PrefKeyMusicVol, 0.5f);
+        _sfxVolume    = PlayerPrefs.GetFloat(PrefKeySfxVol,   1.0f);
+
+        ApplyMusicVolume();
+        ApplySfxVolume();
+    }
+
+    private const string PrefKeyMusic    = "audio_music_enabled";
+    private const string PrefKeysfx      = "audio_sfx_enabled";
+    private const string PrefKeyMusicVol = "audio_music_volume";
+    private const string PrefKeySfxVol   = "audio_sfx_volume";
+
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource bgMusicSource;
+    [SerializeField] private AudioSource uiSource;
+    [SerializeField] private AudioSource wheelSegmentSource;
+    [SerializeField] private AudioSource reserveSource;
+    [SerializeField] private AudioSource anticipationSource;
+
+    [Header("Audio Clips")]
+    [SerializeField] private AudioClip clipGameMainBg;
+    [SerializeField] private AudioClip clipBetPlusMinus;
+    [SerializeField] private AudioClip clipMaxBetReached;
+    [SerializeField] private AudioClip clipPrimaryActionButton;
+    [SerializeField] private AudioClip clipGeneralButtonClick;
+    [SerializeField] private AudioClip clipPopupOpenClose;
+    [SerializeField] private AudioClip clipAutoplayPanelOpen;
+    [SerializeField] private AudioClip clipFreeSpinBg;
+    [SerializeField] private AudioClip clipSpinningReel;
+    [SerializeField] private AudioClip clipNormalWin;
+    [SerializeField] private AudioClip clipReelStop;
+    [SerializeField] private AudioClip clipBigWin;
+    [SerializeField] private AudioClip clipScatterInReel;
+    [SerializeField] private AudioClip clipReelTension;
+
+    private bool _musicEnabled = true;
+    private bool _sfxEnabled   = true;
+    private float _musicVolume = 0.5f;
+    private float _sfxVolume   = 1.0f;
+    private Coroutine anticipationFadeCoroutine;
+    private AudioSource bigWinSource;
+
+    internal bool MusicEnabled => _musicEnabled;
+    internal bool SfxEnabled   => _sfxEnabled;
+    internal float MusicVolume => _musicVolume;
+    internal float SfxVolume   => _sfxVolume;
+
+    internal void SetMusicEnabled(bool on)
+    {
+        _musicEnabled = on;
+        PlayerPrefs.SetInt(PrefKeyMusic, on ? 1 : 0);
+        PlayerPrefs.Save();
+        ApplyMusicVolume();
+    }
+
+    internal void SetSfxEnabled(bool on)
+    {
+        _sfxEnabled = on;
+        PlayerPrefs.SetInt(PrefKeysfx, on ? 1 : 0);
+        PlayerPrefs.Save();
+        ApplySfxVolume();
+    }
+
+    internal void SetMusicVolume(float volume)
+    {
+        _musicVolume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat(PrefKeyMusicVol, _musicVolume);
+        PlayerPrefs.Save();
+        ApplyMusicVolume();
+    }
+
+    internal void SetSfxVolume(float volume)
+    {
+        _sfxVolume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat(PrefKeySfxVol, _sfxVolume);
+        PlayerPrefs.Save();
+        ApplySfxVolume();
+    }
+
+    private void ApplyMusicVolume()
+    {
+        if (bgMusicSource == null) return;
+        bgMusicSource.volume = _musicEnabled ? _musicVolume : 0f;
+    }
+
+    private void ApplySfxVolume()
+    {
+        float v = _sfxEnabled ? _sfxVolume : 0f;
+        if (uiSource           != null) uiSource.volume           = v;
+        if (wheelSegmentSource != null) wheelSegmentSource.volume = v;
+        if (reserveSource      != null) reserveSource.volume      = v;
+        if (anticipationSource != null) anticipationSource.volume = v;
+        if (bigWinSource       != null) bigWinSource.volume       = v;
+    }
+
+    /// <summary>
+    /// Uses UI source (AudioSource 2). If busy/playing, falls back to reserve source (AudioSource 4).
+    /// </summary>
+    private void PlayUISound(AudioClip clip)
+    {
+        if (!_sfxEnabled || clip == null) return;
+
+        if (uiSource != null && !uiSource.isPlaying)
+        {
+            uiSource.PlayOneShot(clip);
+        }
+        else if (reserveSource != null)
+        {
+            reserveSource.PlayOneShot(clip);
+        }
+        else if (uiSource != null)
+        {
+            uiSource.PlayOneShot(clip);
+        }
+    }
+
+    private void PlayLoop(AudioSource source, AudioClip clip)
+    {
+        if (source == null || clip == null) return;
+        source.clip   = clip;
+        source.loop   = true;
+        source.volume = _musicEnabled ? _musicVolume : 0f;
+        source.Play();
+    }
+
+    private void StopSource(AudioSource source)
+    {
+        if (source == null) return;
+        source.Stop();
+        source.loop = false;
+    }
+
+    // 1. Game Main BG
+    internal void PlayBgMusic()
+    {
+        if (bgMusicSource == null || clipGameMainBg == null) return;
+        if (bgMusicSource.isPlaying && bgMusicSource.clip == clipGameMainBg) return;
+
+        bgMusicSource.clip   = clipGameMainBg;
+        bgMusicSource.loop   = true;
+        bgMusicSource.volume = _musicEnabled ? _musicVolume : 0f;
+        bgMusicSource.Play();
+    }
+
+    internal void PlayMainBg() => PlayBgMusic();
+
+    internal void StopBgMusic()
+    {
+        StopSource(bgMusicSource);
+    }
+
+    // 2. Bet Plus / Bet Minus (one for both)
+    internal void PlayBetPlusMinus()
+    {
+        PlayUISound(clipBetPlusMinus);
+    }
+
+    internal void PlayBetPlus()  => PlayBetPlusMinus();
+    internal void PlayBetMinus() => PlayBetPlusMinus();
+
+    // 3. Max Bet Reached
+    internal void PlayMaxBetReached()
+    {
+        PlayUISound(clipMaxBetReached);
+    }
+
+    // 4. Spin / Stop / Take / AutoplayStop / WheelStart Btn Sound
+    internal void PlayPrimaryActionButton()
+    {
+        PlayUISound(clipPrimaryActionButton != null ? clipPrimaryActionButton : clipGeneralButtonClick);
+    }
+
+    internal void PlaySpinStart()    => PlayPrimaryActionButton();
+    internal void PlaySpinStop()     => PlayPrimaryActionButton();
+    internal void PlayTakeButton()   => PlayPrimaryActionButton();
+    internal void PlayAutoplayStop() => PlayPrimaryActionButton();
+    internal void PlayWheelStart()   => PlayPrimaryActionButton();
+
+    // 5. General Button Click
+    internal void PlayButton()
+    {
+        PlayUISound(clipGeneralButtonClick);
+    }
+
+    internal void PlayGeneralButtonClick() => PlayButton();
+
+    // 6. Popup Open Close Sound
+    internal void PlayPopupOpenClose()
+    {
+        PlayUISound(clipPopupOpenClose != null ? clipPopupOpenClose : clipGeneralButtonClick);
+    }
+
+    internal void PlayPopupClose() => PlayPopupOpenClose();
+    internal void PlayPopupOpen()  => PlayPopupOpenClose();
+
+    // 7. Autoplay Panel Open Sound
+    internal void PlayAutoplayPanelOpen()
+    {
+        PlayUISound(clipAutoplayPanelOpen != null ? clipAutoplayPanelOpen : clipPopupOpenClose);
+    }
+
+    // 8. FreeSpin BG (loop while free spin)
+    internal void PlayFreeSpinBg()
+    {
+        if (clipFreeSpinBg == null) return;
+        PlayLoop(bgMusicSource, clipFreeSpinBg);
+    }
+
+    // 9. Spinning Reel Loop
+    internal void PlaySpinningReel()
+    {
+        if (!_sfxEnabled || wheelSegmentSource == null || clipSpinningReel == null) return;
+        if (wheelSegmentSource.isPlaying && wheelSegmentSource.clip == clipSpinningReel) return;
+
+        wheelSegmentSource.clip = clipSpinningReel;
+        wheelSegmentSource.loop = true;
+        wheelSegmentSource.volume = _sfxVolume;
+        wheelSegmentSource.Play();
+    }
+
+    internal void StopSpinningReel()
+    {
+        if (wheelSegmentSource != null && wheelSegmentSource.clip == clipSpinningReel)
+        {
+            StopSource(wheelSegmentSource);
+        }
+    }
+
+    // 10. Normal Win
+    internal void PlayNormalWin()
+    {
+        PlayUISound(clipNormalWin);
+    }
+
+    // 11. Slot Reel Column Stop Sound
+    internal void PlayReelStop()
+    {
+        if (!_sfxEnabled || clipReelStop == null) return;
+
+        if (wheelSegmentSource != null)
+            wheelSegmentSource.PlayOneShot(clipReelStop);
+        else
+            PlayUISound(clipReelStop);
+    }
+
+    // 12. Big Win Presentation
+    internal void PlayBigWin()
+    {
+        if (!_sfxEnabled || clipBigWin == null) return;
+
+        if (bigWinSource == null)
+        {
+            bigWinSource = gameObject.AddComponent<AudioSource>();
+            bigWinSource.playOnAwake = false;
+            bigWinSource.spatialBlend = 0f;
+        }
+
+        bigWinSource.Stop();
+        bigWinSource.clip = clipBigWin;
+        bigWinSource.loop = false;
+        bigWinSource.volume = _sfxVolume;
+        bigWinSource.Play();
+    }
+
+    internal void StopBigWin()
+    {
+        if (bigWinSource == null) return;
+        bigWinSource.Stop();
+        bigWinSource.clip = null;
+    }
+
+    // 13. Scatter Present On A Landing Reel
+    internal void PlayScatterInReel()
+    {
+        PlayUISound(clipScatterInReel);
+    }
+
+    // 14. Scatter Anticipation / Reel Tension
+    internal void PlayReelTension()
+    {
+        StopReelTension();
+        if (!_sfxEnabled || anticipationSource == null || clipReelTension == null) return;
+
+        anticipationSource.clip = clipReelTension;
+        anticipationSource.loop = true;
+        anticipationSource.volume = _sfxVolume;
+        anticipationSource.Play();
+    }
+
+    internal void FadeOutReelTension(float duration)
+    {
+        if (anticipationSource == null || !anticipationSource.isPlaying) return;
+
+        if (anticipationFadeCoroutine != null)
+        {
+            StopCoroutine(anticipationFadeCoroutine);
+        }
+        anticipationFadeCoroutine = StartCoroutine(FadeOutReelTensionRoutine(duration));
+    }
+
+    internal void StopReelTension()
+    {
+        if (anticipationFadeCoroutine != null)
+        {
+            StopCoroutine(anticipationFadeCoroutine);
+            anticipationFadeCoroutine = null;
+        }
+
+        if (anticipationSource == null) return;
+        anticipationSource.Stop();
+        anticipationSource.loop = false;
+        anticipationSource.clip = null;
+        anticipationSource.volume = _sfxEnabled ? _sfxVolume : 0f;
+    }
+
+    private IEnumerator FadeOutReelTensionRoutine(float duration)
+    {
+        float fadeDuration = Mathf.Max(0f, duration);
+        float startVolume = anticipationSource != null ? anticipationSource.volume : 0f;
+
+        if (fadeDuration > 0f)
+        {
+            float elapsed = 0f;
+            while (anticipationSource != null && elapsed < fadeDuration)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                anticipationSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / fadeDuration);
+                yield return null;
+            }
+        }
+
+        anticipationFadeCoroutine = null;
+        if (anticipationSource != null)
+        {
+            anticipationSource.Stop();
+            anticipationSource.loop = false;
+            anticipationSource.clip = null;
+            anticipationSource.volume = _sfxEnabled ? _sfxVolume : 0f;
+        }
+    }
+
+    private bool isForceMuted = false;
+
+    internal void SetMuteAll(bool forceMute)
+    {
+        if (forceMute == isForceMuted) return;
+        isForceMuted = forceMute;
+
+        AudioListener.volume = forceMute ? 0f : 1f;
+    }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        SetMuteAll(!hasFocus);
+    }
+
+    private void OnApplicationPause(bool isPaused)
+    {
+        SetMuteAll(isPaused);
+    }
+}

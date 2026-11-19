@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: 5393170dbccd59b41a5350ad206246fd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1582532622630537928
+    second: JackO Lantern_BIG WIN numbers_0
+  - first:
+      213: 1769035290363825288
+    second: JackO Lantern_BIG WIN numbers_1
+  - first:
+      213: -3796331209349212032
+    second: JackO Lantern_BIG WIN numbers_2
+  - first:
+      213: 2825352143683863389
+    second: JackO Lantern_BIG WIN numbers_3
+  - first:
+      213: -8510862133955464263
+    second: JackO Lantern_BIG WIN numbers_4
+  - first:
+      213: 8618194727720240670
+    second: JackO Lantern_BIG WIN numbers_5
+  - first:
+      213: -8675973453317394275
+    second: JackO Lantern_BIG WIN numbers_6
+  - first:
+      213: 966398772097532272
+    second: JackO Lantern_BIG WIN numbers_7
+  - first:
+      213: 8644652535955061237
+    second: JackO Lantern_BIG WIN numbers_8
+  - first:
+      213: -6981772782721375284
+    second: JackO Lantern_BIG WIN numbers_9
+  - first:
+      213: -7997099140047842474
+    second: JackO Lantern_BIG WIN numbers_10
+  - first:
+      213: -393355804718670465
+    second: JackO Lantern_BIG WIN numbers_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 756
+        width: 91
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 835b3aed6f6b90ae0800000000000000
+      internalID: -1582532622630537928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_1
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 758
+        width: 142
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88c044d4930ec8810800000000000000
+      internalID: 1769035290363825288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_2
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 756
+        width: 149
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 088d20101e8b05bc0800000000000000
+      internalID: -3796331209349212032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_3
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 760
+        width: 155
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d534aa92ecaa53720800000000000000
+      internalID: 2825352143683863389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_4
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 413
+        width: 150
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b3f24d4bf753e980800000000000000
+      internalID: -8510862133955464263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_5
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 413
+        width: 152
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e16c8e6917af99770800000000000000
+      internalID: 8618194727720240670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_6
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 417
+        width: 140
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d903c4a8c10c89780800000000000000
+      internalID: -8675973453317394275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_7
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 410
+        width: 154
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0714f322096596d00800000000000000
+      internalID: 966398772097532272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_8
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 63
+        width: 152
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f9f74c1ea9f7f770800000000000000
+      internalID: 8644652535955061237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_9
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 63
+        width: 155
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3e66725a2cb1f90800000000000000
+      internalID: -6981772782721375284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_10
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 67
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 653dddbd3b8940190800000000000000
+      internalID: -7997099140047842474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JackO Lantern_BIG WIN numbers_11
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 41
+        width: 79
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7dd76dcaf48a8af0800000000000000
+      internalID: -393355804718670465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      JackO Lantern_BIG WIN numbers_0: -1582532622630537928
+      JackO Lantern_BIG WIN numbers_1: 1769035290363825288
+      JackO Lantern_BIG WIN numbers_10: -7997099140047842474
+      JackO Lantern_BIG WIN numbers_11: -393355804718670465
+      JackO Lantern_BIG WIN numbers_2: -3796331209349212032
+      JackO Lantern_BIG WIN numbers_3: 2825352143683863389
+      JackO Lantern_BIG WIN numbers_4: -8510862133955464263
+      JackO Lantern_BIG WIN numbers_5: 8618194727720240670
+      JackO Lantern_BIG WIN numbers_6: -8675973453317394275
+      JackO Lantern_BIG WIN numbers_7: 966398772097532272
+      JackO Lantern_BIG WIN numbers_8: 8644652535955061237
+      JackO Lantern_BIG WIN numbers_9: -6981772782721375284
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
