@@ -170,7 +170,24 @@ public class ServerPayload
     [JsonProperty("isFreeSpinTriggered")]
     public bool isFreeSpinsTriggered;
     public int freeSpinsAwarded;
+    public ServerFreeGamesState freeGames;
     public double globalMultiplier = 1;
+}
+
+[Serializable]
+public class ServerFreeGamesState
+{
+    public bool triggered;
+    public bool retriggered;
+    public bool active;
+    public bool isCompleted;
+    public int spinsRemaining;
+    public int totalSpins;
+    public double? totalWinCash;
+    public double? gameWin;
+    public double? featureWin;
+    public double? totalWin;
+    public double multiplier = 1;
 }
 
 [Serializable]
@@ -318,6 +335,7 @@ public class SpinResult
     public PlayerData playerData;
     public FreeSpinData freeSpinData;
     public ScatterData scatterData;
+    public ServerFreeGamesState freeGames;
     public int serverSpinsRemaining;
     public bool isFreeSpinActive;
     public int activeLines;
@@ -519,6 +537,8 @@ public static class InitDataConverter
         List<List<int>> resultMatrix = ConvertMatrix(serverResponse.matrix, gameConfig);
         List<WinLine> winLines = ConvertWinningLines(serverResponse.payload.lineWins, gameConfig);
         int scatterCount = CountSymbol(resultMatrix, gameConfig?.scatterSymbolId ?? 1);
+        FreeSpinData freeSpinData = ConvertFreeSpinData(serverResponse.payload);
+        bool isFreeSpinTriggered = freeSpinData != null && freeSpinData.isTriggered;
 
         if (serverResponse.payload.scatterWin > 0 && scatterCount > 0)
         {
@@ -543,27 +563,25 @@ public static class InitDataConverter
                 currentBetIndex = 0
             },
 
-            freeSpinData = serverResponse.payload.isFreeSpinsTriggered
-                ? new FreeSpinData
-                {
-                    isTriggered = true,
-                    spinsAwarded = serverResponse.payload.freeSpinsAwarded,
-                    remainingSpins = serverResponse.payload.freeSpinsRemaining,
-                    isBought = false
-                }
-                : null,
+            freeSpinData = freeSpinData,
 
-            scatterData = (serverResponse.payload.scatterWin > 0 || serverResponse.payload.isFreeSpinsTriggered)
+            scatterData = (serverResponse.payload.scatterWin > 0 || isFreeSpinTriggered)
                 ? new ScatterData
                 {
-                    isTriggered = serverResponse.payload.isFreeSpinsTriggered,
+                    isTriggered = isFreeSpinTriggered,
                     scatterCount = scatterCount,
                     winAmount = serverResponse.payload.scatterWin
                 }
                 : null,
 
-            serverSpinsRemaining = Math.Max(0, serverResponse.payload.freeSpinsRemaining),
-            isFreeSpinActive = serverResponse.payload.isFreeSpinActive,
+            freeGames = serverResponse.payload.freeGames,
+            serverSpinsRemaining = serverResponse.payload.freeGames?.isCompleted == true
+                ? 0
+                : Math.Max(0, serverResponse.payload.freeGames?.spinsRemaining
+                    ?? serverResponse.payload.freeSpinsRemaining),
+            isFreeSpinActive = serverResponse.payload.freeGames != null
+                ? serverResponse.payload.freeGames.active && !serverResponse.payload.freeGames.isCompleted
+                : serverResponse.payload.isFreeSpinActive,
             activeLines = serverResponse.payload.activeLines,
             scatterWin = serverResponse.payload.scatterWin,
             globalMultiplier = serverResponse.payload.globalMultiplier > 0
@@ -572,6 +590,30 @@ public static class InitDataConverter
         };
 
         return result;
+    }
+
+    private static FreeSpinData ConvertFreeSpinData(ServerPayload payload)
+    {
+        ServerFreeGamesState state = payload.freeGames;
+        bool triggered = state != null
+            ? state.triggered || state.retriggered
+            : payload.isFreeSpinsTriggered;
+
+        if (!triggered) return null;
+
+        return new FreeSpinData
+        {
+            isTriggered = true,
+            // Retrigger awards are the change in totalSpins, resolved against
+            // the previous session total by GameManager.
+            spinsAwarded = state == null
+                ? Math.Max(0, payload.freeSpinsAwarded)
+                : state.retriggered
+                    ? 0
+                    : Math.Max(0, state.totalSpins),
+            remainingSpins = Math.Max(0, state?.spinsRemaining ?? payload.freeSpinsRemaining),
+            isBought = false
+        };
     }
 
     private static List<List<int>> ConvertMatrix(List<List<string>> serverMatrix, GameConfig gameConfig)

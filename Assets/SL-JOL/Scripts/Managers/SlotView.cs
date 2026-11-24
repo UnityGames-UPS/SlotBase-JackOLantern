@@ -14,6 +14,7 @@ public class SlotView : MonoBehaviour
     private const float LandingStartOffset = 350f;
     private const float LandingDuration = 0.25f;
     private const float NormalStopSpacing = 0.2f;
+    private const float ResultAssignmentProgress = 0.95f;
 
     [Header("References")]
     [SerializeField] private GameManager gameManager;
@@ -25,6 +26,10 @@ public class SlotView : MonoBehaviour
     [SerializeField] private TMPro.TMP_Text winAmountMidText;
     [SerializeField] private TMPro.TMP_Text winAmountLowerMidText;
     [SerializeField] private TMPro.TMP_Text winAmountBottomText;
+
+    [Header("Existing Winboxes - Five Reels, Four Rows Each")]
+    [Tooltip("Winbox/Slot through Slot (4), with each reel's Images 1 through 4 in top-to-bottom order.")]
+    [SerializeField] private List<ReelImages> winBoxImages = new List<ReelImages>(5);
 
     [Header("Symbol Sprites - Assign by Name")]
     [FormerlySerializedAs("spriteLantern"), SerializeField] private Sprite symbolWildSprite;       // ID: 0
@@ -48,7 +53,7 @@ public class SlotView : MonoBehaviour
     [SerializeField] private List<Sprite> animSpritesWild;
     [Tooltip("Animation sprites for the Scatter symbol (ID 1)")]
     [FormerlySerializedAs("animSpritesUSpin"), SerializeField] private List<Sprite> animSpritesScatter;
-    [Tooltip("Optional frames. An empty list keeps this game's normal sprite and animates its WinBox.")]
+    [Tooltip("Optional frames. An empty list keeps this game's normal sprite with its existing winbox outline.")]
     [SerializeField] private List<Sprite> animSpritesMummy;
     [SerializeField] private List<Sprite> animSpritesGoblin;
     [SerializeField] private List<Sprite> animSpritesVampire;
@@ -147,6 +152,8 @@ public class SlotView : MonoBehaviour
     private readonly float[] reelCycleBaseDurations = new float[5];
     private readonly bool[] reelIsAnticipating = new bool[5];
     private readonly bool[] reelHasStopped = new bool[5];
+    private List<List<int>> pendingResultMatrix;
+    private readonly bool[] reelResultPrepared = new bool[5];
     private bool manualStopRequested;
     private Coroutine stopSpinCoroutine;
     private Coroutine winAnimationCoroutine;
@@ -165,6 +172,8 @@ public class SlotView : MonoBehaviour
         BindSpinStripImages();
         HasValidResultCells(true);
         BindResultAndAnimationLayer();
+        HasValidWinBoxes(true);
+        HideAllWinBoxes();
         InitializeReels();
     }
 
@@ -379,40 +388,86 @@ public class SlotView : MonoBehaviour
         return animationImage != null ? animationImage.gameObject : null;
     }
 
-    private void SynchronizeWinBoxLoop(GameObject symbolAnimationObject, ImageAnimation symbolAnimation)
+    private bool HasValidWinBoxes(bool logErrors)
     {
-        if (symbolAnimationObject == null) return;
-
-        // Each SlotAnimHolder symbol has its WinBox as a child. The symbol
-        // completes two loops while the WinBox completes one loop over the
-        // same total duration, so both reach a clean boundary together.
-        float winBoxLoopDuration = winSymbolLoopDuration * 2f;
-        ImageAnimation[] childAnimations = symbolAnimationObject.GetComponentsInChildren<ImageAnimation>(true);
-
-        foreach (ImageAnimation childAnimation in childAnimations)
+        if (winBoxImages == null || winBoxImages.Count != 5)
         {
-            if (childAnimation == null || childAnimation == symbolAnimation) continue;
+            if (logErrors)
+                Debug.LogError("[SlotView] Assign the five existing Winbox reels, with four row Images per reel.", this);
+            return false;
+        }
 
-            childAnimation.SetLoopDuration(winBoxLoopDuration);
-            childAnimation.doLoopAnimation = true;
-            childAnimation.onLoopComplete = null;
+        HashSet<Image> assignedImages = new HashSet<Image>();
+        for (int column = 0; column < 5; column++)
+        {
+            List<Image> images = winBoxImages[column]?.images;
+            if (images == null || images.Count != VisibleRowCount)
+            {
+                if (logErrors)
+                    Debug.LogError($"[SlotView] Winbox reel {column + 1} must contain Images 1 through 4 in row order.", this);
+                return false;
+            }
+
+            for (int row = 0; row < VisibleRowCount; row++)
+            {
+                if (images[row] == null || !assignedImages.Add(images[row]))
+                {
+                    if (logErrors)
+                        Debug.LogError($"[SlotView] Winbox on reel {column + 1}, row {row + 1} is missing or duplicated.", this);
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private void SetWinBoxVisible(int column, int row, bool visible, Color? color = null)
+    {
+        if (winBoxImages == null || column < 0 || column >= winBoxImages.Count) return;
+
+        List<Image> images = winBoxImages[column]?.images;
+        if (images == null || row < 0 || row >= images.Count) return;
+
+        Image box = images[row];
+        if (box == null) return;
+
+        box.raycastTarget = false;
+        if (color.HasValue) box.color = color.Value;
+        box.gameObject.SetActive(visible);
+    }
+
+    private void HideAllWinBoxes()
+    {
+        if (winBoxImages == null) return;
+
+        foreach (ReelImages reel in winBoxImages)
+        {
+            if (reel?.images == null) continue;
+
+            foreach (Image box in reel.images)
+            {
+                if (box == null) continue;
+                box.raycastTarget = false;
+                box.gameObject.SetActive(false);
+            }
         }
     }
 
-    private static List<ImageAnimation> GetWinBoxAnimations(GameObject symbolAnimationObject, ImageAnimation symbolAnimation)
+    private Color GetWinLineColor(int lineIndex)
     {
-        List<ImageAnimation> winBoxAnimations = new List<ImageAnimation>();
-        if (symbolAnimationObject == null) return winBoxAnimations;
+        if (winLineObjects == null || lineIndex < 0 || lineIndex >= winLineObjects.Count)
+            return Color.white;
 
-        ImageAnimation[] childAnimations = symbolAnimationObject.GetComponentsInChildren<ImageAnimation>(true);
-        foreach (ImageAnimation childAnimation in childAnimations)
-        {
-            if (childAnimation == null || childAnimation == symbolAnimation) continue;
-            if (childAnimation.gameObject.activeSelf && childAnimation.HasAnimationFrames())
-                winBoxAnimations.Add(childAnimation);
-        }
+        GameObject line = winLineObjects[lineIndex];
+        if (line == null) return Color.white;
 
-        return winBoxAnimations;
+        UILineConnector connector = line.GetComponent<UILineConnector>();
+        if (connector != null) return connector.LineColor;
+
+        Transform segment = line.transform.Find("Segment_0");
+        Image image = segment != null ? segment.GetComponent<Image>() : null;
+        return image != null ? image.color : Color.white;
     }
 
     private List<Sprite> GetLoopingSymbolFrames(int symbolId)
@@ -422,7 +477,7 @@ public class SlotView : MonoBehaviour
 
         List<Sprite> frames = animationSpriteArrays[symbolId];
         // Until matching Jack O'Lantern animation frames are supplied, show the
-        // correct base symbol while its existing WinBox provides the animation.
+        // correct base symbol with its existing winbox outline.
         if (frames == null || frames.Count == 0)
             return new List<Sprite> { GetSymbolSprite(symbolId) };
 
@@ -589,6 +644,7 @@ public class SlotView : MonoBehaviour
 
     private void StopAnimationOverlays()
     {
+        HideAllWinBoxes();
         if (slotAnimationImages == null) return;
 
         for (int col = 0; col < slotAnimationImages.Count; col++)
@@ -667,6 +723,7 @@ public class SlotView : MonoBehaviour
         if (symbolInfoCard != null) symbolInfoCard.HideCard();
 
         KillAllTweens();
+        pendingResultMatrix = null;
         isSpinning = true;
         manualStopRequested = false;
         AudioManager.Instance?.PlaySpinningReel();
@@ -676,6 +733,7 @@ public class SlotView : MonoBehaviour
         {
             reelCycleCount[column] = 0;
             reelHasStopped[column] = false;
+            reelResultPrepared[column] = false;
             StartReelCycle(column);
         }
     }
@@ -700,10 +758,14 @@ public class SlotView : MonoBehaviour
             .DOAnchorPosY(ReelEndY, baseCycleDuration)
             .SetLoops(-1, LoopType.Restart)
             .SetEase(Ease.Flash)
+            .OnUpdate(() => TryApplyPendingReelResult(columnIndex))
             .OnStepComplete(() =>
             {
-                if (isSpinning)
-                    reelCycleCount[columnIndex]++;
+                if (!isSpinning) return;
+
+                // Handles a frame that skips over the 95% trigger.
+                TryApplyPendingReelResult(columnIndex, force: true);
+                reelCycleCount[columnIndex]++;
             });
 
         if (spinTweens.Count <= columnIndex)
@@ -712,6 +774,36 @@ public class SlotView : MonoBehaviour
             spinTweens[columnIndex] = cycleTween;
 
         ApplyCurrentSpinSpeedToReel(columnIndex);
+    }
+
+    private void TryApplyPendingReelResult(int columnIndex, bool force = false)
+    {
+        if (!isSpinning ||
+            columnIndex < 0 ||
+            columnIndex >= reelResultPrepared.Length ||
+            reelResultPrepared[columnIndex] ||
+            pendingResultMatrix == null ||
+            columnIndex >= pendingResultMatrix.Count)
+            return;
+
+        List<int> symbols = pendingResultMatrix[columnIndex];
+        if (symbols == null || symbols.Count != VisibleRowCount)
+            return;
+
+        if (!force)
+        {
+            RectTransform reel = reelTransforms[columnIndex] as RectTransform;
+            if (reel == null) return;
+
+            float progress = Mathf.InverseLerp(
+                ReelStartY, ReelEndY, reel.anchoredPosition.y);
+
+            if (progress < ResultAssignmentProgress)
+                return;
+        }
+
+        SetResultSymbols(columnIndex, symbols);
+        reelResultPrepared[columnIndex] = true;
     }
 
     private void SetReelY(int columnIndex, float y)
@@ -777,7 +869,7 @@ public class SlotView : MonoBehaviour
 
         if (speed != SpinSpeed.Normal)
         {
-            // Anticipation is Normal-only. Fast keeps its cycle-boundary wait;
+            // Anticipation is Normal-only. Fast keeps its first-reel boundary wait;
             // Skip bypasses the boundary and spacing waits.
             StopAllScatterAnticipationVisuals();
         }
@@ -873,6 +965,7 @@ public class SlotView : MonoBehaviour
         bool stopTogether)
     {
         currentDisplayMatrix = resultMatrix;
+        pendingResultMatrix = resultMatrix;
         if (stopTogether) RequestManualStop();
 
         int stoppedScatterCount = 0;
@@ -881,8 +974,8 @@ public class SlotView : MonoBehaviour
             if (CanPlayScatterAnticipation() && stoppedScatterCount == ScatterCountForAnticipation)
                 yield return PlayScatterAnticipation(column, scatterAnticipationDuration);
 
-            // Normal and Fast request the next reel's boundary after a pause.
-            // Fast scales the pause and landing by its relative movement speed.
+            // Normal requests each reel's next boundary after a pause.
+            // Fast uses timed spacing after the first reel's boundary.
             // Skip and manual Stop advance to the next reel after one frame.
             yield return StopSingleReel(column, resultMatrix[column]);
             stoppedScatterCount += CountScatterSymbols(resultMatrix[column]);
@@ -911,6 +1004,7 @@ public class SlotView : MonoBehaviour
             bool minimumMet = manualStopRequested ||
                 reelCycleCount[columnIndex] >= requiredResets;
             bool boundaryReady = SkipStopWaits() ||
+                (speed == SpinSpeed.Turbo && columnIndex > 0) ||
                 reelCycleCount[columnIndex] > cycleWhenRequested;
             if (minimumMet && boundaryReady) break;
 
@@ -920,9 +1014,9 @@ public class SlotView : MonoBehaviour
         spinTweens[columnIndex]?.Kill();
         // Prevent live movement-speed changes from scaling the landing tween.
         reelCycleBaseDurations[columnIndex] = 0f;
-        SetResultSymbols(columnIndex, targetSymbols);
-        SetAnimationColumnVisible(columnIndex, false);
         SetReelY(columnIndex, ReelStartY + LandingStartOffset);
+        TryApplyPendingReelResult(columnIndex, force: true);
+        SetAnimationColumnVisible(columnIndex, false);
 
         RectTransform reel = (RectTransform)reelTransforms[columnIndex];
         spinTweens[columnIndex] = reel
@@ -938,12 +1032,18 @@ public class SlotView : MonoBehaviour
             });
 
         float elapsed = 0f;
-        do
+        while (true)
         {
             yield return null;
-            elapsed += Time.deltaTime * GetStopTimeScale();
+            elapsed += Time.deltaTime;
+
+            float stopInterval = gameManager != null &&
+                gameManager.currentSpinSpeed == SpinSpeed.Turbo &&
+                columnIndex < reelHasStopped.Length - 1
+                ? GetCycleDurationForSpeed(SpinSpeed.Normal) * 0.5f
+                : NormalStopSpacing / GetStopTimeScale();
+            if (elapsed >= stopInterval || SkipStopWaits()) break;
         }
-        while (elapsed < NormalStopSpacing && !SkipStopWaits());
     }
 
     private int CountScatterSymbols(IReadOnlyList<int> symbols)
@@ -1112,6 +1212,7 @@ public class SlotView : MonoBehaviour
         seq.AppendCallback(() => {
             SetNormalResultVisible(column, row, false);
             animGO.SetActive(true);
+            SetWinBoxVisible(column, row, true, GetWinLineColor(0));
             imageAnim.StartAnimation();
         });
 
@@ -1124,6 +1225,7 @@ public class SlotView : MonoBehaviour
                 imageAnim.StopAnimation();
             }
             if (animGO != null) animGO.SetActive(false);
+            SetWinBoxVisible(column, row, false);
             SetNormalResultVisible(column, row, true);
         });
 
@@ -1260,8 +1362,7 @@ public class SlotView : MonoBehaviour
                 yield return AnimateWinPositions(
                     winLine.positions,
                     multipleWinLineLoopCount,
-                    false,
-                    null);
+                    winBoxLineIndex: showLinePresentation ? winLine.lineId : 0);
             }
 
             if (showLinePresentation)
@@ -1281,7 +1382,8 @@ public class SlotView : MonoBehaviour
         int loopCountTarget,
         bool continueUntilNextSpin = false,
         System.Action onInitialLoopsComplete = null,
-        ISet<int> positionsToKeepActive = null)
+        ISet<int> positionsToKeepActive = null,
+        int winBoxLineIndex = 0)
     {
         if (flatPositions == null) yield break;
 
@@ -1292,7 +1394,7 @@ public class SlotView : MonoBehaviour
         List<GameObject> activeAnimationObjects = new List<GameObject>();
         List<Vector2Int> activePositions = new List<Vector2Int>();
         List<int> activeFlatIndices = new List<int>();
-        List<List<ImageAnimation>> activeWinBoxAnimations = new List<List<ImageAnimation>>();
+        Color winBoxColor = GetWinLineColor(winBoxLineIndex);
 
         foreach (int flatIndex in flatPositions)
         {
@@ -1310,8 +1412,6 @@ public class SlotView : MonoBehaviour
             ImageAnimation imageAnim = animGO.GetComponent<ImageAnimation>();
             if (imageAnim == null) continue;
 
-            SynchronizeWinBoxLoop(animGO, imageAnim);
-
             if (col >= currentDisplayMatrix.Count || row >= currentDisplayMatrix[col].Count) continue;
             int symbolId = currentDisplayMatrix[col][row];
             if (symbolId < 0 || symbolId >= animationSpriteArrays.Length) continue;
@@ -1328,7 +1428,6 @@ public class SlotView : MonoBehaviour
             activeAnimationObjects.Add(animGO);
             activePositions.Add(new Vector2Int(col, row));
             activeFlatIndices.Add(flatIndex);
-            activeWinBoxAnimations.Add(GetWinBoxAnimations(animGO, imageAnim));
         }
 
         // Activate every position before advancing the shared clock so all
@@ -1338,6 +1437,7 @@ public class SlotView : MonoBehaviour
             Vector2Int position = activePositions[index];
             SetNormalResultVisible(position.x, position.y, false);
             activeAnimationObjects[index].SetActive(true);
+            SetWinBoxVisible(position.x, position.y, true, winBoxColor);
         }
 
         if (activeAnims.Count > 0)
@@ -1345,16 +1445,9 @@ public class SlotView : MonoBehaviour
             for (int index = 0; index < activeAnims.Count; index++)
             {
                 activeAnims[index].BeginSynchronizedPlayback();
-                foreach (ImageAnimation winBoxAnimation in activeWinBoxAnimations[index])
-                {
-                    winBoxAnimation.onLoopComplete = null;
-                    winBoxAnimation.doLoopAnimation = true;
-                    winBoxAnimation.BeginSynchronizedPlayback();
-                }
             }
 
             float phaseDuration = winSymbolLoopDuration * loopCountTarget;
-            float winBoxLoopDuration = winSymbolLoopDuration * 2f;
             float elapsedTime = 0f;
 
             while (elapsedTime < phaseDuration)
@@ -1362,10 +1455,6 @@ public class SlotView : MonoBehaviour
                 for (int index = 0; index < activeAnims.Count; index++)
                 {
                     activeAnims[index].SetSynchronizedTime(elapsedTime, winSymbolLoopDuration);
-                    foreach (ImageAnimation winBoxAnimation in activeWinBoxAnimations[index])
-                    {
-                        winBoxAnimation.SetSynchronizedTime(elapsedTime, winBoxLoopDuration);
-                    }
                 }
 
                 yield return null;
@@ -1376,10 +1465,6 @@ public class SlotView : MonoBehaviour
             for (int index = 0; index < activeAnims.Count; index++)
             {
                 activeAnims[index].SetSynchronizedTime(phaseDuration, winSymbolLoopDuration);
-                foreach (ImageAnimation winBoxAnimation in activeWinBoxAnimations[index])
-                {
-                    winBoxAnimation.SetSynchronizedTime(phaseDuration, winBoxLoopDuration);
-                }
             }
             elapsedTime = phaseDuration;
 
@@ -1395,10 +1480,6 @@ public class SlotView : MonoBehaviour
                     for (int index = 0; index < activeAnims.Count; index++)
                     {
                         activeAnims[index].SetSynchronizedTime(elapsedTime, winSymbolLoopDuration);
-                        foreach (ImageAnimation winBoxAnimation in activeWinBoxAnimations[index])
-                        {
-                            winBoxAnimation.SetSynchronizedTime(elapsedTime, winBoxLoopDuration);
-                        }
                     }
                 }
             }
@@ -1408,10 +1489,6 @@ public class SlotView : MonoBehaviour
             for (int index = 0; index < activeAnims.Count; index++)
             {
                 activeAnims[index].EndSynchronizedPlayback();
-                foreach (ImageAnimation winBoxAnimation in activeWinBoxAnimations[index])
-                {
-                    winBoxAnimation.EndSynchronizedPlayback();
-                }
             }
 
             for (int i = 0; i < activeAnims.Count; i++)
@@ -1426,6 +1503,7 @@ public class SlotView : MonoBehaviour
                 imageAnim.StopAnimation();
 
                 Vector2Int position = activePositions[i];
+                SetWinBoxVisible(position.x, position.y, false);
                 SetNormalResultVisible(position.x, position.y, true);
             }
         }
@@ -1497,9 +1575,25 @@ public class SlotView : MonoBehaviour
 
         if (amountText != null)
         {
-            amountText.text = winLine.winAmount.ToString(
+            string amount = winLine.winAmount.ToString(
                 "0.###",
                 System.Globalization.CultureInfo.InvariantCulture);
+
+            var builder = new System.Text.StringBuilder(amount.Length * 11);
+
+            foreach (char character in amount)
+            {
+                if (character >= '0' && character <= '9')
+                    builder.Append("<sprite=").Append(character - '0').Append('>');
+                else if (character == '.')
+                    builder.Append("<sprite=10>");
+            }
+
+            if (amountText.spriteAsset == null && winAmountTopText != null)
+                amountText.spriteAsset = winAmountTopText.spriteAsset;
+
+            amountText.richText = true;
+            amountText.text = builder.ToString();
             amountText.gameObject.SetActive(true);
         }
     }
@@ -1564,6 +1658,7 @@ public class SlotView : MonoBehaviour
     }
     private void ResetSymbolScale(int col, int row)
     {
+        SetWinBoxVisible(col, row, false);
         Image resultImage = GetNormalResultImage(col, row);
         if (resultImage != null)
         {
@@ -1652,6 +1747,7 @@ public class SlotView : MonoBehaviour
         seq.AppendCallback(() => {
             SetNormalResultVisible(column, row, false);
             animGO.SetActive(true);
+            SetWinBoxVisible(column, row, true, GetWinLineColor(0));
         });
 
         if (winLineBoxToAnimationDelay > 0)
@@ -1673,6 +1769,7 @@ public class SlotView : MonoBehaviour
                 imageAnim.StopAnimation();
             }
             if (animGO != null) animGO.SetActive(false);
+            SetWinBoxVisible(column, row, false);
             SetNormalResultVisible(column, row, true);
         });
 
@@ -1681,6 +1778,7 @@ public class SlotView : MonoBehaviour
 
     private void KillWinTweens(bool stopCoroutine = true)
     {
+        HideAllWinBoxes();
         foreach (var tween in winTweens)
         {
             tween?.Kill();

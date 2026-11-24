@@ -1,0 +1,337 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
+  m_Name: JackO Lantern_BIG WIN numbers
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_SpriteAsset
+  m_Version: 1.1.0
+  m_FaceInfo:
+    m_FaceIndex: 0
+    m_FamilyName: 
+    m_StyleName: 
+    m_PointSize: 0
+    m_Scale: 0
+    m_UnitsPerEM: 0
+    m_LineHeight: 0
+    m_AscentLine: 0
+    m_CapLine: 0
+    m_MeanLine: 0
+    m_Baseline: 0
+    m_DescentLine: 0
+    m_SuperscriptOffset: 0
+    m_SuperscriptSize: 0
+    m_SubscriptOffset: 0
+    m_SubscriptSize: 0
+    m_UnderlineOffset: 0
+    m_UnderlineThickness: 0
+    m_StrikethroughOffset: 0
+    m_StrikethroughThickness: 0
+    m_TabWidth: 0
+  m_Material: {fileID: 2535400329881291350}
+  spriteSheet: {fileID: 2800000, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  m_SpriteCharacterTable:
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 10
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_9
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 2
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_0
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 1
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_1
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 3
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_2
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 0
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_3
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 5
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_4
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 6
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_5
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 4
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_6
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 7
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_7
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 9
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_8
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 8
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_10
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 11
+    m_Scale: 1
+    m_Name: JackO Lantern_BIG WIN numbers_11
+  m_GlyphTable:
+  - m_Index: 10
+    m_Metrics:
+      m_Width: 155
+      m_Height: 181
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: 90.5
+      m_HorizontalAdvance: 160
+    m_GlyphRect:
+      m_X: 305
+      m_Y: 63
+      m_Width: 155
+      m_Height: 181
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -6981772782721375284, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 2
+    m_Metrics:
+      m_Width: 91
+      m_Height: 174
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: 87
+      m_HorizontalAdvance: 102
+    m_GlyphRect:
+      m_X: 75
+      m_Y: 756
+      m_Width: 91
+      m_Height: 174
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -1582532622630537928, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 1
+    m_Metrics:
+      m_Width: 142
+      m_Height: 171
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: 85.5
+      m_HorizontalAdvance: 142
+    m_GlyphRect:
+      m_X: 303
+      m_Y: 758
+      m_Width: 142
+      m_Height: 171
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 1769035290363825288, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 3
+    m_Metrics:
+      m_Width: 149
+      m_Height: 181
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: 90.5
+      m_HorizontalAdvance: 149
+    m_GlyphRect:
+      m_X: 546
+      m_Y: 756
+      m_Width: 149
+      m_Height: 181
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -3796331209349212032, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 0
+    m_Metrics:
+      m_Width: 155
+      m_Height: 174
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: 87
+      m_HorizontalAdvance: 155
+    m_GlyphRect:
+      m_X: 794
+      m_Y: 760
+      m_Width: 155
+      m_Height: 174
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 2825352143683863389, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 5
+    m_Metrics:
+      m_Width: 150
+      m_Height: 178
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: 89
+      m_HorizontalAdvance: 150
+    m_GlyphRect:
+      m_X: 46
+      m_Y: 413
+      m_Width: 150
+      m_Height: 178
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -8510862133955464263, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 6
+    m_Metrics:
+      m_Width: 152
+      m_Height: 181
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: 90.5
+      m_HorizontalAdvance: 152
+    m_GlyphRect:
+      m_X: 303
+      m_Y: 413
+      m_Width: 152
+      m_Height: 181
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 8618194727720240670, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 4
+    m_Metrics:
+      m_Width: 140
+      m_Height: 174
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: 87
+      m_HorizontalAdvance: 156.4
+    m_GlyphRect:
+      m_X: 555
+      m_Y: 417
+      m_Width: 140
+      m_Height: 174
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -8675973453317394275, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 7
+    m_Metrics:
+      m_Width: 154
+      m_Height: 181
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: 90.5
+      m_HorizontalAdvance: 160
+    m_GlyphRect:
+      m_X: 796
+      m_Y: 410
+      m_Width: 154
+      m_Height: 181
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 966398772097532272, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 9
+    m_Metrics:
+      m_Width: 152
+      m_Height: 181
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: 90.5
+      m_HorizontalAdvance: 160
+    m_GlyphRect:
+      m_X: 45
+      m_Y: 63
+      m_Width: 152
+      m_Height: 181
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 8644652535955061237, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 8
+    m_Metrics:
+      m_Width: 65
+      m_Height: 66
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: -51.8
+      m_HorizontalAdvance: 70
+    m_GlyphRect:
+      m_X: 592
+      m_Y: 67
+      m_Width: 65
+      m_Height: 66
+    m_Scale: 0.3
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -7997099140047842474, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  - m_Index: 11
+    m_Metrics:
+      m_Width: 79
+      m_Height: 92
+      m_HorizontalBearingX: -50
+      m_HorizontalBearingY: -76.3
+      m_HorizontalAdvance: 85
+    m_GlyphRect:
+      m_X: 833
+      m_Y: 41
+      m_Width: 79
+      m_Height: 92
+    m_Scale: 0.3
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -393355804718670465, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+  spriteInfoList: []
+  fallbackSpriteAssets: []
+--- !u!21 &2535400329881291350
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: JackO Lantern_BIG WIN numbers Material
+  m_Shader: {fileID: 4800000, guid: cf81c85f95fe47e1a27f6ae460cf182c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5393170dbccd59b41a5350ad206246fd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _CullMode: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

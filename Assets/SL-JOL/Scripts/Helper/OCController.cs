@@ -9,6 +9,7 @@ public class OCController : MonoBehaviour
     [SerializeField] private OrientationChange orientationChange;
     [SerializeField] private CanvasScaler canvasScaler;
     [SerializeField] private Transform slotObject;
+    [SerializeField] private RectTransform gameLogo;
     [SerializeField] private List<RectTransform> resizedObjects = new List<RectTransform>();
     [SerializeField] private List<RectTransform> squareResizedObjects = new List<RectTransform>();
 
@@ -39,6 +40,14 @@ public class OCController : MonoBehaviour
     [SerializeField] private Vector3 portraitSlotScale = new Vector3(0.73f, 0.73f, 0.73f);
     [SerializeField] private Vector3 landscapeSlotPosition = Vector3.zero;
     [SerializeField] private Vector3 portraitSlotPosition = new Vector3(0f, -150f, 0f);
+
+    [Header("Game Logo Settings")]
+    [SerializeField] private Vector3 landscapeGameLogoScale = Vector3.one;
+    [SerializeField] private Vector3 portraitGameLogoScale = Vector3.one;
+    [SerializeField] private Vector2 landscapeGameLogoPosition =
+        new Vector2(-3.6f, 294.4f);
+    [SerializeField] private Vector2 portraitGameLogoPosition =
+        new Vector2(-3.6f, 294.4f);
 
     [Header("Info Page & Guide Settings")]
     [SerializeField] private RectTransform infoPageScrollObject;
@@ -185,6 +194,31 @@ public class OCController : MonoBehaviour
             {
                 slotObject.localScale = targetScale;
                 slotObject.localPosition = targetPosition;
+            }
+        }
+
+        if (gameLogo != null)
+        {
+            Vector3 targetScale = isMobilePortrait
+                ? portraitGameLogoScale
+                : landscapeGameLogoScale;
+            Vector2 targetPosition = isMobilePortrait
+                ? portraitGameLogoPosition
+                : landscapeGameLogoPosition;
+
+            if (transitionDuration > 0)
+            {
+                activeTweens.Add(
+                    gameLogo.DOScale(targetScale, transitionDuration)
+                        .SetEase(Ease.OutCubic));
+                activeTweens.Add(
+                    gameLogo.DOAnchorPos(targetPosition, transitionDuration)
+                        .SetEase(Ease.OutCubic));
+            }
+            else
+            {
+                gameLogo.localScale = targetScale;
+                gameLogo.anchoredPosition = targetPosition;
             }
         }
 
