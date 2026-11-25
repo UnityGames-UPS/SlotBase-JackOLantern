@@ -59,12 +59,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform wheelTitleTransformPortrait;
     
     [Header("Universal Win Popup")]
-    [SerializeField] private GameObject bigWinObject;
     [SerializeField] private GameObject universalWinPopup;
     [SerializeField] private RectTransform universalWinPopupRect;
     [SerializeField] private GameObject uwpCongratulationsTitle;
     [SerializeField] private GameObject uwpYouWonSubtitle;
-    [SerializeField] private GameObject uwpBigWinTitle;
     [SerializeField] private TMP_Text uwpWinAmountText;
     [SerializeField] private TMP_Text uwpFreeSpinCountText;
     [SerializeField] private GameObject uwpFreeSpinObject;
@@ -181,8 +179,8 @@ public class UIManager : MonoBehaviour
     [Header("Free Games Feature Panel")]
     [SerializeField] private GameObject freeGamesFeaturePanel;
     [SerializeField] private GameObject freeGamesStartPanel;
-    [SerializeField] private GameObject freeGamesStartPanelPortrait;
     [SerializeField] private GameObject freeGamesMidPanel;
+    [SerializeField] private GameObject gameLogo;
     [SerializeField] private GameObject freeGamesEndPanel;
     [SerializeField] private GameObject freeGamesBlackFilm;
     [SerializeField] private GameObject freeGamesBrokenGlass;
@@ -277,9 +275,6 @@ public class UIManager : MonoBehaviour
     private bool isSpecialWinActive = false;
     internal bool IsSpecialWinActive => isSpecialWinActive;
     public System.Action OnSpecialWinComplete;
-    private ImageAnimation activeBigWinAnimation;
-    private System.Action<int> bigWinLoopCompleteHandler;
-    private System.Action bigWinCompletionCallback;
 
     // Universal Win Popup state
     private System.Action universalWinPopupCallback;
@@ -344,8 +339,7 @@ public class UIManager : MonoBehaviour
         if (isFreeGamesFeatureActive && freeGamesFeaturePanel != null)
         {
             bool startActive =
-                (freeGamesStartPanel != null && freeGamesStartPanel.activeSelf) ||
-                (freeGamesStartPanelPortrait != null && freeGamesStartPanelPortrait.activeSelf);
+                freeGamesStartPanel != null && freeGamesStartPanel.activeSelf;
 
             SetFreeGamesPanelState(
                 freeGamesFeaturePanel.activeSelf,
@@ -420,7 +414,6 @@ public class UIManager : MonoBehaviour
         if (guidePanel) guidePanel.SetActive(false);
         if (uwpWinTween != null) { uwpWinTween.Kill(); uwpWinTween = null; }
         if (starFountain != null) starFountain.StopStarBurst();
-        if (bigWinObject) bigWinObject.SetActive(false);
         if (universalWinPopup) universalWinPopup.SetActive(false);
 
         SetFreeGamesPanelState(false, false, false, false);
@@ -825,71 +818,6 @@ public class UIManager : MonoBehaviour
             SetBetControlsEnabled(true);
             SetButtonInteractable(settingsOpenButton, settingsOpenButtonPortrait, true);
         }
-    }
-
-    internal void TriggerBigWinPopup(SpinResult result, System.Action onComplete = null)
-    {
-        ClearMidSpinBigWinState(false);
-
-        if (bigWinObject == null)
-        {
-            onComplete?.Invoke();
-            return;
-        }
-
-        activeBigWinAnimation = bigWinObject.GetComponent<ImageAnimation>();
-        if (activeBigWinAnimation == null || !activeBigWinAnimation.HasAnimationFrames())
-        {
-            onComplete?.Invoke();
-            return;
-        }
-
-        isSpecialWinActive = true;
-        bigWinCompletionCallback = onComplete;
-        bigWinLoopCompleteHandler = completedLoops =>
-        {
-            if (completedLoops >= 2)
-            {
-                ClearMidSpinBigWinState(true);
-            }
-        };
-        activeBigWinAnimation.onLoopComplete += bigWinLoopCompleteHandler;
-
-        // Toggling restarts the sprite animation from frame zero. The game flow
-        // remains paused until ImageAnimation reports that two loops completed.
-        AudioManager.Instance?.PlayBigWin();
-        bigWinObject.SetActive(false);
-        bigWinObject.SetActive(true);
-    }
-
-    private void ClearMidSpinBigWinState(bool invokeCompletion)
-    {
-        if (activeBigWinAnimation != null && bigWinLoopCompleteHandler != null)
-        {
-            activeBigWinAnimation.onLoopComplete -= bigWinLoopCompleteHandler;
-        }
-
-        activeBigWinAnimation = null;
-        bigWinLoopCompleteHandler = null;
-
-        System.Action callback = bigWinCompletionCallback;
-        bigWinCompletionCallback = null;
-
-        AudioManager.Instance?.StopBigWin();
-        if (bigWinObject != null) bigWinObject.SetActive(false);
-        isSpecialWinActive = false;
-
-        if (invokeCompletion)
-        {
-            EnableControlsAfterWinAnimation();
-            callback?.Invoke();
-        }
-    }
-
-    internal void DisableControlsDuringWinAnimation()
-    {
-        SetBetControlsEnabled(false);
-        SetSpinStopButtonStates(isSpinningState: false, isInteractable: false);
     }
 
     internal void EnableControlsAfterWinAnimation()
@@ -1412,7 +1340,6 @@ public class UIManager : MonoBehaviour
         bool hasAllReferences =
             freeGamesFeaturePanel != null &&
             freeGamesStartPanel != null &&
-            freeGamesStartPanelPortrait != null &&
             freeGamesMidPanel != null &&
             freeGamesEndPanel != null &&
             freeGamesBlackFilm != null &&
@@ -1435,17 +1362,45 @@ public class UIManager : MonoBehaviour
 
     private void SetFreeGamesPanelState(bool rootActive, bool startActive, bool midActive, bool endActive)
     {
-        bool isPortraitMode = IsPortraitMode();
-
         if (freeGamesFeaturePanel) freeGamesFeaturePanel.SetActive(rootActive);
-        if (freeGamesStartPanel) freeGamesStartPanel.SetActive(startActive && !isPortraitMode);
-        if (freeGamesStartPanelPortrait) freeGamesStartPanelPortrait.SetActive(startActive && isPortraitMode);
+        if (freeGamesStartPanel) freeGamesStartPanel.SetActive(startActive);
         if (freeGamesMidPanel) freeGamesMidPanel.SetActive(midActive);
+        UpdateFreeGamesMidPresentation(rootActive, midActive);
         if (freeGamesEndPanel) freeGamesEndPanel.SetActive(endActive);
-        if (freeGamesBlackFilm) freeGamesBlackFilm.SetActive(rootActive && (startActive || endActive));
+
+        if (freeGamesBlackFilm)
+        {
+            if (freeGamesBlackFilm.transform is RectTransform filmRect)
+            {
+                filmRect.sizeDelta = IsPortraitMode()
+                    ? new Vector2(1500f, 3500f)
+                    : new Vector2(1920f, 1080f);
+            }
+
+            freeGamesBlackFilm.SetActive(rootActive && (startActive || endActive));
+        }
+
         if (freeGamesBrokenGlass) freeGamesBrokenGlass.SetActive(rootActive && endActive);
         if (landscapeGreyFilm) landscapeGreyFilm.SetActive(false);
         if (portraitGreyFilm) portraitGreyFilm.SetActive(false);
+    }
+
+    private void UpdateFreeGamesMidPresentation(bool rootActive, bool midActive)
+    {
+        bool isPortraitMode = IsPortraitMode();
+
+        if (freeGamesMidPanel &&
+            freeGamesMidPanel.transform is RectTransform midRect)
+        {
+            midRect.anchoredPosition = isPortraitMode
+                ? new Vector2(810f, 340f)
+                : Vector2.zero;
+        }
+
+        if (gameLogo)
+        {
+            gameLogo.SetActive(!(rootActive && midActive && isPortraitMode));
+        }
     }
 
     internal void OnFreeSpinsStarted(int spins, double triggeringGameWin, bool resumeExisting = false)
@@ -1485,7 +1440,6 @@ public class UIManager : MonoBehaviour
         isFreeGamesRetriggerStart = false;
         isFreeGamesAwaitingStartButton = false;
 
-        if (bigWinObject) bigWinObject.SetActive(false);
 
         if (freeGamesAmountTween != null)
         {
@@ -1700,7 +1654,6 @@ public class UIManager : MonoBehaviour
             StopCoroutine(freeGamesStartAnnouncementCoroutine);
             freeGamesStartAnnouncementCoroutine = null;
         }
-        if (bigWinObject) bigWinObject.SetActive(false);
         SetFreeGamesPanelState(true, false, false, true);
         AnimateFreeGamesEndTitle();
         Debug.Log("[FreeGames] Showing End with the existing BlackFilm and BrokenGlass.");
@@ -1800,7 +1753,6 @@ public class UIManager : MonoBehaviour
         freeGamesTriggerWin = 0;
         pendingFreeSpins = 0;
         SetFreeGamesPanelState(false, false, false, false);
-        if (bigWinObject) bigWinObject.SetActive(false);
 
         // The server has already credited every free-game result. Reveal that
         // authoritative final balance now instead of adding the win a second time.
@@ -2228,7 +2180,6 @@ public class UIManager : MonoBehaviour
     private void OnDestroy()
     {
         StopPortraitJackpotIconAnimations(true);
-        ClearMidSpinBigWinState(false);
         if (balanceTween != null) balanceTween.Kill();
         if (winTween != null) winTween.Kill();
         if (freeGamesAmountTween != null) freeGamesAmountTween.Kill();
@@ -2476,7 +2427,6 @@ public class UIManager : MonoBehaviour
 
         if (uwpCongratulationsTitle) uwpCongratulationsTitle.SetActive(false);
         if (uwpYouWonSubtitle) uwpYouWonSubtitle.SetActive(false);
-        if (uwpBigWinTitle) uwpBigWinTitle.SetActive(false);
         if (uwpWinAmountText) uwpWinAmountText.gameObject.SetActive(false);
         if (uwpFreeSpinCountText) uwpFreeSpinCountText.gameObject.SetActive(false);
         if (uwpFreeSpinObject) uwpFreeSpinObject.SetActive(false);
@@ -2504,22 +2454,6 @@ public class UIManager : MonoBehaviour
                 }
                 break;
 
-            case WinPopupType.BigWin:
-                if (uwpBigWinTitle) uwpBigWinTitle.SetActive(true);
-                if (uwpWinAmountText)
-                {
-                    uwpWinAmountText.gameObject.SetActive(true);
-                    uwpWinAmountText.text = FormatAmount(winAmount);
-                    RectTransform bigWinAmountRect = uwpWinAmountText.GetComponent<RectTransform>();
-                    if (bigWinAmountRect != null)
-                    {
-                        Vector2 pos = bigWinAmountRect.anchoredPosition;
-                        pos.y = 0f;
-                        bigWinAmountRect.anchoredPosition = pos;
-                    }
-                }
-                break;
-
             case WinPopupType.MoneyBagCollect:
                 if (uwpCongratulationsTitle) uwpCongratulationsTitle.SetActive(true);
                 if (uwpYouWonSubtitle) uwpYouWonSubtitle.SetActive(true);
@@ -2541,7 +2475,7 @@ public class UIManager : MonoBehaviour
                 break;
         }
 
-        if (type != WinPopupType.BigWin && uwpWinAmountText)
+        if (uwpWinAmountText)
         {
             RectTransform winAmountRect = uwpWinAmountText.GetComponent<RectTransform>();
             if (winAmountRect != null)
@@ -2554,9 +2488,8 @@ public class UIManager : MonoBehaviour
 
         SetSpinStopButtonStates(isSpinningState: false, isInteractable: false);
 
-        bool showTakeButton = (type != WinPopupType.BigWin);
-        SetButtonActive(uwpTakeButton, uwpTakeButtonPortrait, showTakeButton);
-        SetButtonInteractable(uwpTakeButton, uwpTakeButtonPortrait, showTakeButton);
+        SetButtonActive(uwpTakeButton, uwpTakeButtonPortrait, true);
+        SetButtonInteractable(uwpTakeButton, uwpTakeButtonPortrait, true);
 
         universalWinPopup.SetActive(true);
         if (universalWinPopupRect)
@@ -2576,7 +2509,7 @@ public class UIManager : MonoBehaviour
 
             uwpWinAmountText.text = (0.0).ToString(formatStr);
 
-            float countUpDuration = (type == WinPopupType.BigWin) ? 1.5f : 1.0f;
+            const float countUpDuration = 1.0f;
 
             uwpWinTween = DOVirtual.Float(0f, (float)winAmount, countUpDuration, (val) =>
             {

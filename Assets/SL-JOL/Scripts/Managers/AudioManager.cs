@@ -48,7 +48,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip clipSpinningReel;
     [SerializeField] private AudioClip clipNormalWin;
     [SerializeField] private AudioClip clipReelStop;
-    [SerializeField] private AudioClip clipBigWin;
     [SerializeField] private AudioClip clipScatterInReel;
     [SerializeField] private AudioClip clipReelTension;
 
@@ -57,7 +56,6 @@ public class AudioManager : MonoBehaviour
     private float _musicVolume = 0.5f;
     private float _sfxVolume   = 1.0f;
     private Coroutine anticipationFadeCoroutine;
-    private AudioSource bigWinSource;
 
     internal bool MusicEnabled => _musicEnabled;
     internal bool SfxEnabled   => _sfxEnabled;
@@ -109,7 +107,6 @@ public class AudioManager : MonoBehaviour
         if (wheelSegmentSource != null) wheelSegmentSource.volume = v;
         if (reserveSource      != null) reserveSource.volume      = v;
         if (anticipationSource != null) anticipationSource.volume = v;
-        if (bigWinSource       != null) bigWinSource.volume       = v;
     }
 
     /// <summary>
@@ -260,32 +257,6 @@ public class AudioManager : MonoBehaviour
             wheelSegmentSource.PlayOneShot(clipReelStop);
         else
             PlayUISound(clipReelStop);
-    }
-
-    // 12. Big Win Presentation
-    internal void PlayBigWin()
-    {
-        if (!_sfxEnabled || clipBigWin == null) return;
-
-        if (bigWinSource == null)
-        {
-            bigWinSource = gameObject.AddComponent<AudioSource>();
-            bigWinSource.playOnAwake = false;
-            bigWinSource.spatialBlend = 0f;
-        }
-
-        bigWinSource.Stop();
-        bigWinSource.clip = clipBigWin;
-        bigWinSource.loop = false;
-        bigWinSource.volume = _sfxVolume;
-        bigWinSource.Play();
-    }
-
-    internal void StopBigWin()
-    {
-        if (bigWinSource == null) return;
-        bigWinSource.Stop();
-        bigWinSource.clip = null;
     }
 
     // 13. Scatter Present On A Landing Reel

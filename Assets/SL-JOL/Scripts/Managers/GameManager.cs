@@ -10,9 +10,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PopupManager popupManager;
     [SerializeField] private SlotView slotView;
 
-    [Header("Win Settings")]
-    [SerializeField] private double bigWinMultiplierThreshold = 500.0;
-
     internal GameConfig gameConfig;
     internal PlayerData playerData;
     internal SpinResult lastResult;
@@ -52,7 +49,6 @@ public class GameManager : MonoBehaviour
 
     private Coroutine spinCoroutine;
     private bool stopRequested;
-    private bool waitingForSpecialWin;
 
     #region Initialization
 
@@ -262,31 +258,25 @@ public class GameManager : MonoBehaviour
 
         if (lastResult != null && lastResult.winAmount > 0 && lastResult.winLines != null && lastResult.winLines.Count > 0)
         {
-            double totalPay = GetTotalPay();
-            double multiplier = totalPay > 0 ? (lastResult.winAmount / totalPay) : 0;
             bool isFreeSpinTrigger = lastResult.freeSpinData != null && lastResult.freeSpinData.isTriggered;
 
-            // A mid-spin BigWin pauses normal play, autoplay, and individual
-            // free games. Free-game trigger/End presentation remains separate.
-            if (multiplier >= bigWinMultiplierThreshold && !isFreeSpinTrigger)
+            uiManager.OnSpinStopping(lastResult);
+            uiManager.EnableControlsAfterWinAnimation();
+            uiManager.OnSpinCompleted(lastResult);
+            currentState = GameState.Idle;
+
+            if (!isFreeSpinTrigger)
             {
-                uiManager.DisableControlsDuringWinAnimation();
-                currentState = GameState.Idle;
+                AudioManager.Instance?.PlayNormalWin();
+            }
+
+            if (slotView != null)
+            {
                 slotView.ShowWinLineAnimation(lastResult.winLines, OnWinAnimationComplete);
-                StartCoroutine(TriggerWinPopupWithDelay(1.5f, lastResult));
             }
             else
             {
-                // For normal wins, trigger UI update immediately and enable controls
-                uiManager.OnSpinStopping(lastResult);
-                uiManager.EnableControlsAfterWinAnimation();
-                uiManager.OnSpinCompleted(lastResult);
-                currentState = GameState.Idle;
-                if (!isFreeSpinTrigger)
-                {
-                    AudioManager.Instance?.PlayNormalWin();
-                }
-                slotView.ShowWinLineAnimation(lastResult.winLines, OnWinAnimationComplete);
+                OnWinAnimationComplete();
             }
         }
         else
@@ -297,55 +287,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator TriggerWinPopupWithDelay(float delay, SpinResult result)
-    {
-        double totalPay = GetTotalPay();
-        double multiplier = totalPay > 0 ? (result.winAmount / totalPay) : 0;
-        if (multiplier < bigWinMultiplierThreshold)
-        {
-            waitingForSpecialWin = false;
-            yield break;
-        }
-
-        waitingForSpecialWin = true;
-
-        yield return new WaitForSeconds(delay);
-
-        if (lastResult == result && multiplier >= bigWinMultiplierThreshold)
-        {
-            uiManager.TriggerBigWinPopup(result, () =>
-            {
-                waitingForSpecialWin = false;
-            });
-        }
-        else
-        {
-            waitingForSpecialWin = false;
-        }
-    }
-
     private void OnWinAnimationComplete()
     {
-        if (lastResult != null)
-        {
-            double totalPay = GetTotalPay();
-            double multiplier = totalPay > 0 ? (lastResult.winAmount / totalPay) : 0;
-            bool isFreeSpinTrigger = lastResult.freeSpinData != null && lastResult.freeSpinData.isTriggered;
-
-            // Only update UI here if it wasn't already updated in OnReelsStoppedComplete (multiplier < bigWinMultiplierThreshold)
-            if (multiplier >= bigWinMultiplierThreshold && !isFreeSpinTrigger)
-            {
-                uiManager.OnSpinStopping(lastResult);
-            }
-        }
-
         StartCoroutine(ProcessSpecialFeaturesAfterWin());
     }
 
     private IEnumerator ProcessSpecialFeaturesAfterWin()
     {
-        // Wait for special win popup to finish before starting special features
-        while (waitingForSpecialWin || uiManager.IsSpecialWinActive)
+        // Wait for an active feature presentation before continuing.
+        while (uiManager.IsSpecialWinActive)
         {
             yield return null;
         }
@@ -387,8 +337,8 @@ public class GameManager : MonoBehaviour
         float delayTime = currentSpinSpeed == SpinSpeed.QuickSpin ? 0.3f : 0.5f;
         yield return new WaitForSeconds(delayTime);
 
-        // Wait for special win popup using the flag and active state
-        while (waitingForSpecialWin || uiManager.IsSpecialWinActive)
+        // Keep feature presentations in control of when the next round can start.
+        while (uiManager.IsSpecialWinActive)
         {
             yield return null;
         }
@@ -690,8 +640,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
 
-        // Wait for special win popup if it's still active or pending
-        while (waitingForSpecialWin || uiManager.IsSpecialWinActive)
+        // Preserve the free-game presentation lock between rounds.
+        while (uiManager.IsSpecialWinActive)
         {
             yield return null;
         }

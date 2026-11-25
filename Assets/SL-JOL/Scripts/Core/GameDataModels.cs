@@ -434,11 +434,10 @@ public enum SpinSpeed
 
 public enum WinPopupType
 {
-    RegularWin,         // Normal credit win (multiplier < 500x)
-    BigWin,             // Big win (multiplier >= 500x)
-    FreeSpinTrigger,    // Free spins awarded by Scatter symbols
-    MoneyBagCollect,    // Money bag feature collect
-    FreeSpinComplete    // All free spins completed
+    RegularWin = 0,       // Normal credit win
+    FreeSpinTrigger = 2,  // Free spins awarded by Scatter symbols
+    MoneyBagCollect = 3,  // Money bag feature collect
+    FreeSpinComplete = 4  // All free spins completed
 }
 
 #endregion
