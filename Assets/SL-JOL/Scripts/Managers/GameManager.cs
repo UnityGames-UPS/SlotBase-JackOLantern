@@ -260,10 +260,9 @@ public class GameManager : MonoBehaviour
         {
             bool isFreeSpinTrigger = lastResult.freeSpinData != null && lastResult.freeSpinData.isTriggered;
 
+            currentState = GameState.ShowingWin;
             uiManager.OnSpinStopping(lastResult);
-            uiManager.EnableControlsAfterWinAnimation();
             uiManager.OnSpinCompleted(lastResult);
-            currentState = GameState.Idle;
 
             if (!isFreeSpinTrigger)
             {
@@ -289,6 +288,10 @@ public class GameManager : MonoBehaviour
 
     private void OnWinAnimationComplete()
     {
+        if (currentState == GameState.ShowingWin)
+            currentState = GameState.Idle;
+
+        uiManager.EnableControlsAfterWinAnimation();
         StartCoroutine(ProcessSpecialFeaturesAfterWin());
     }
 

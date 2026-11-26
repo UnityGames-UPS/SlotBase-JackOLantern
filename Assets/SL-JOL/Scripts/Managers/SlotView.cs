@@ -11,6 +11,7 @@ public class SlotView : MonoBehaviour
     private const int ScatterCountForAnticipation = 2;
     private const int VisibleRowCount = 4;
     private const float ReelStartY = 783f;
+    private const float ReelResetY = 783f;
     private const float ReelEndY = -774f;
     private const float LandingStartOffset = 350f;
     private const float LandingDuration = 0.25f;
@@ -722,7 +723,7 @@ public class SlotView : MonoBehaviour
         // A one-second base tween lets timeScale express the configured speed.
         const float baseCycleDuration = 1f;
         reelCycleBaseDurations[columnIndex] = baseCycleDuration;
-        SetReelY(columnIndex, ReelStartY);
+        SetReelY(columnIndex, ReelResetY);
         Tween cycleTween = reel
             .DOAnchorPosY(ReelEndY, baseCycleDuration)
             .SetLoops(-1, LoopType.Restart)
@@ -1285,42 +1286,33 @@ public class SlotView : MonoBehaviour
         }
 
         // ==========================================
-        // PHASE 2: Keep one continuous winning-line sequence. The first two
-        // passes include line artwork and payout text; later passes keep the
-        // same symbol/WinBox order with that presentation hidden.
+        // PHASE 2: Show two complete passes through the individual win lines.
         // ==========================================
-        int completedPresentationPasses = 0;
-        while (true)
+        for (int pass = 0; pass < winLinePresentationPassCount; pass++)
         {
-            bool showLinePresentation = completedPresentationPasses < winLinePresentationPassCount;
-
-            for (int lineIndex = 0; lineIndex < displayWinLines.Count; lineIndex++)
+            foreach (WinLine winLine in displayWinLines)
             {
-                WinLine winLine = displayWinLines[lineIndex];
                 HideAllWinLineTexts();
                 HideWinLinePresentation();
 
-                if (showLinePresentation)
-                {
-                    ShowWinLinePresentation(winLine);
-                }
+                AudioManager.Instance?.PlayWinLineSwitch();
+                ShowWinLinePresentation(winLine);
 
                 yield return AnimateWinPositions(
                     winLine.positions,
                     multipleWinLineLoopCount,
-                    winBoxLineIndex: showLinePresentation ? winLine.lineId : 0);
-            }
-
-            if (showLinePresentation)
-            {
-                completedPresentationPasses++;
-                if (completedPresentationPasses >= winLinePresentationPassCount)
-                {
-                    HideAllWinLineTexts();
-                    HideWinLinePresentation();
-                }
+                    winBoxLineIndex: winLine.lineId);
             }
         }
+
+        // PHASE 3: Animate all winning symbols together until the next spin.
+        HideAllWinLineTexts();
+        HideWinLinePresentation();
+
+        yield return AnimateWinPositions(
+            allWinPositions,
+            multipleWinLineLoopCount,
+            continueUntilNextSpin: true);
     }
 
     private IEnumerator AnimateWinPositions(

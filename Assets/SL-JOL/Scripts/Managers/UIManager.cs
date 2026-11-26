@@ -172,9 +172,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text ruleSymbol8Text;
     [SerializeField] private TMP_Text ruleSymbol9Text;
 
-    // Multiplier blocks appear in this order on the Info page. Entries that
-    // show two icons use the first icon because both symbols share a paytable.
-    private static readonly int[] InfoPageMultiplierSymbolIds = { 3, 4, 6, 8, 9, 11, 12, 1 };
+    // Mummy; Goblin/Vampire/Werewolf; A/K; Q/J; 10/9; Scatter.
+    // Grouped symbols share a paytable, so each block uses its first symbol.
+    private static readonly int[] InfoPageMultiplierSymbolIds = { 2, 3, 6, 8, 10, 1 };
 
     [Header("Free Games Feature Panel")]
     [SerializeField] private GameObject freeGamesFeaturePanel;
@@ -927,6 +927,12 @@ public class UIManager : MonoBehaviour
             SetButtonActive(spinButton, spinButtonPortrait, showSpinStatus);
             SetButtonInteractable(spinButton, spinButtonPortrait, false);
             return;
+        }
+
+        if (gameManager.currentState == GameState.ShowingWin &&
+            !gameManager.isAutoPlaying)
+        {
+            isInteractable = false;
         }
 
         if (gameManager.isAutoPlaying)
@@ -2111,28 +2117,6 @@ public class UIManager : MonoBehaviour
             ruleSymbol8Text, ruleSymbol9Text
         };
 
-        // Use explicitly assigned fields when available. The current Info-page
-        // layout keeps its formatted blocks under objects named "Multiplier",
-        // so unassigned fields are resolved without altering the scene layout.
-        if (gameRulesPanel != null)
-        {
-            List<TMP_Text> discoveredTexts = new List<TMP_Text>();
-            foreach (TMP_Text text in gameRulesPanel.GetComponentsInChildren<TMP_Text>(true))
-            {
-                if (text != null && text.gameObject.name == "Multiplier")
-                    discoveredTexts.Add(text);
-            }
-
-            discoveredTexts.Sort((left, right) =>
-                left.transform.parent.GetSiblingIndex().CompareTo(right.transform.parent.GetSiblingIndex()));
-
-            for (int i = 0; i < multiplierTexts.Length && i < discoveredTexts.Count; i++)
-            {
-                if (multiplierTexts[i] == null)
-                    multiplierTexts[i] = discoveredTexts[i];
-            }
-        }
-
         if (gameManager.gameConfig.symbols == null) return;
 
         int multiplierBlockCount = Mathf.Min(InfoPageMultiplierSymbolIds.Length, multiplierTexts.Length);
@@ -2149,27 +2133,38 @@ public class UIManager : MonoBehaviour
 
             multiplierText.text = ReplaceInfoPageMultiplierValues(
                 multiplierText.text,
-                symbol.multipliers);
+                symbol);
         }
     }
 
-    private static string ReplaceInfoPageMultiplierValues(string formattedText, List<double> multipliers)
+    private static string ReplaceInfoPageMultiplierValues(
+        string formattedText, SymbolInfo symbol)
     {
-        if (string.IsNullOrEmpty(formattedText) || multipliers == null || multipliers.Count == 0)
+        if (string.IsNullOrEmpty(formattedText) ||
+            symbol?.multipliers == null ||
+            symbol.multipliers.Count == 0)
             return formattedText;
 
-        int multiplierIndex = 0;
         return Regex.Replace(
             formattedText,
-            @"(?i)(\bx\s*)([-+]?(?:\d+(?:\.\d*)?|\.\d+))",
+            @"(?m)^([ \t]*)([2-5])([xX][ \t]+)([-+]?(?:\d+(?:\.\d*)?|\.\d+))",
             match =>
             {
-                if (multiplierIndex >= multipliers.Count) return match.Value;
+                int matches = int.Parse(
+                    match.Groups[2].Value,
+                    CultureInfo.InvariantCulture);
 
-                string value = multipliers[multiplierIndex]
+                int index = matches - symbol.minMatch;
+                if (index < 0 || index >= symbol.multipliers.Count)
+                    return match.Value;
+
+                string value = symbol.multipliers[index]
                     .ToString("0.###", CultureInfo.InvariantCulture);
-                multiplierIndex++;
-                return match.Groups[1].Value + value;
+
+                return match.Groups[1].Value +
+                       match.Groups[2].Value +
+                       match.Groups[3].Value +
+                       value;
             });
     }
 

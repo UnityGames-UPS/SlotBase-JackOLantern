@@ -410,7 +410,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -2083,7 +2083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -3311,7 +3311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -5502,7 +5502,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -7204,7 +7204,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: de7c3f75e76f2eb42a4b8ec45ace367c, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -11998,7 +11998,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -14416,7 +14416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -14713,7 +14713,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -20088,7 +20088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -20205,7 +20205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -20770,7 +20770,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -21512,7 +21512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -22830,7 +22830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -23153,12 +23153,12 @@ MonoBehaviour:
   guideOpenButtonPortrait: {fileID: 593848524}
   totalLineCountText: {fileID: 731576410}
   totalLineCountTextPortrait: {fileID: 760646805}
-  ruleSymbol0Text: {fileID: 0}
-  ruleSymbol1Text: {fileID: 0}
-  ruleSymbol2Text: {fileID: 0}
-  ruleSymbol3Text: {fileID: 0}
-  ruleSymbol4Text: {fileID: 0}
-  ruleSymbol5Text: {fileID: 0}
+  ruleSymbol0Text: {fileID: 1274720797}
+  ruleSymbol1Text: {fileID: 2052531719}
+  ruleSymbol2Text: {fileID: 1178243731}
+  ruleSymbol3Text: {fileID: 891662181}
+  ruleSymbol4Text: {fileID: 347063883}
+  ruleSymbol5Text: {fileID: 734079660}
   ruleSymbol6Text: {fileID: 0}
   ruleSymbol7Text: {fileID: 0}
   ruleSymbol8Text: {fileID: 0}
@@ -26368,7 +26368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -26867,7 +26867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -29334,7 +29334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -30903,7 +30903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f521a04de7f494272a617b2719edd271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SocketIOManager
-  testToken: b71f5dab7af64724bb500498abc7a03d
+  testToken: ec7088d084bf4701b4947791b0841e9d
   gameManager: {fileID: 1206269883}
   uiManager: {fileID: 885496184}
   popupManager: {fileID: 1363796882}
@@ -31911,7 +31911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -32561,7 +32561,7 @@ MonoBehaviour:
   wheelSegmentSource: {fileID: 723936146}
   reserveSource: {fileID: 126421844}
   anticipationSource: {fileID: 1387028788}
-  clipGameMainBg: {fileID: 8300000, guid: ff4b5553552bba546a82f167ed44c26d, type: 3}
+  clipGameMainBg: {fileID: 8300000, guid: d68886f630ce1af42b18164c79920efe, type: 3}
   clipBetPlusMinus: {fileID: 8300000, guid: 2f2b2ed50e5fe4c05bde643bb826e4c2, type: 3}
   clipMaxBetReached: {fileID: 8300000, guid: b556940f8a085479cbf7662d579f648c, type: 3}
   clipPrimaryActionButton: {fileID: 8300000, guid: cdc28904abf8f482a86f75b5b1087cd1, type: 3}
@@ -32569,10 +32569,11 @@ MonoBehaviour:
   clipPopupOpenClose: {fileID: 8300000, guid: c2ed94ff9b16b4493b05db8e783049c7, type: 3}
   clipAutoplayPanelOpen: {fileID: 8300000, guid: b5fa0e1081b524a02aa50b9b2088ef61, type: 3}
   clipFreeSpinBg: {fileID: 8300000, guid: 7cf8eb8c66406634cabb7c10084cf8e2, type: 3}
-  clipSpinningReel: {fileID: 8300000, guid: 38805d08f8c59f14c8601c5779fc2e24, type: 3}
-  clipNormalWin: {fileID: 8300000, guid: ea7a165544907cd4889f9275b377f434, type: 3}
-  clipReelStop: {fileID: 8300000, guid: f7549f52efb927e479a6dedc2e0de8ea, type: 3}
-  clipScatterInReel: {fileID: 8300000, guid: 46ee18d9e3a616542a3fae3a2105b2ca, type: 3}
+  clipSpinningReel: {fileID: 8300000, guid: bdc2ffa890cf6fc4da93c500ccb309e3, type: 3}
+  clipNormalWin: {fileID: 8300000, guid: 4264a4cec57dbca4cbc55c25e8267392, type: 3}
+  clipWinLineSwitch: {fileID: 8300000, guid: ef8ac191ddb79f24581016ddfe106c73, type: 3}
+  clipReelStop: {fileID: 8300000, guid: e3c21998d61765c48ba9d8644616950d, type: 3}
+  clipScatterInReel: {fileID: 8300000, guid: 5b21a126c53373a468c89b8d3ecc67af, type: 3}
   clipReelTension: {fileID: 8300000, guid: 83da91138989d124ba35b714f34cadeb, type: 3}
 --- !u!4 &1330086577
 Transform:
@@ -32976,7 +32977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -33234,7 +33235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -34113,7 +34114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -35373,7 +35374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -36935,10 +36936,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a38312d2bb1555f4f8d2dee41eb39ce7, type: 2}
   normal:
     resetsBeforeStopping: 3
-    movementSpeed: 3000
+    movementSpeed: 4000
   turbo:
     resetsBeforeStopping: 2
-    movementSpeed: 3500
+    movementSpeed: 4500
   quick:
     resetsBeforeStopping: 1
     movementSpeed: 5000
@@ -41522,7 +41523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -43446,7 +43447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -43837,7 +43838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -45311,7 +45312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -47381,7 +47382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -48531,7 +48532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -48940,7 +48941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 5c71dd65d6ddb5e4f91427fcf528f36e, type: 2}
+  skeletonDataAsset: {fileID: 0}
   additiveMaterial: {fileID: 0}
   multiplyMaterial: {fileID: 0}
   screenMaterial: {fileID: 0}
@@ -49918,7 +49919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -50708,7 +50709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

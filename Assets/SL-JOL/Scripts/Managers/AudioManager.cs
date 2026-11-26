@@ -47,6 +47,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip clipFreeSpinBg;
     [SerializeField] private AudioClip clipSpinningReel;
     [SerializeField] private AudioClip clipNormalWin;
+    [SerializeField] private AudioClip clipWinLineSwitch;
     [SerializeField] private AudioClip clipReelStop;
     [SerializeField] private AudioClip clipScatterInReel;
     [SerializeField] private AudioClip clipReelTension;
@@ -246,6 +247,11 @@ public class AudioManager : MonoBehaviour
     internal void PlayNormalWin()
     {
         PlayUISound(clipNormalWin);
+    }
+
+    internal void PlayWinLineSwitch()
+    {
+        PlayUISound(clipWinLineSwitch);
     }
 
     // 11. Slot Reel Column Stop Sound
